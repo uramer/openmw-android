@@ -4,11 +4,11 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-export ARCH="arm"
+export ARCH="arm64"
 export CCACHE="false"
 ASAN="false"
 DEPLOY_RESOURCES="true"
-LTO="false"
+LTO="true"
 BUILD_TYPE="release"
 CFLAGS="-fPIC"
 CXXFLAGS="-fPIC -frtti -fexceptions"
@@ -165,7 +165,6 @@ cmake ../.. \
 	-DABI=$ABI \
 	-DBOOST_ARCH=$BOOST_ARCH \
 	-DBOOST_ADDRESS_MODEL=$BOOST_ADDRESS_MODEL \
-	-DLUAJIT_HOST_CC="$LUAJIT_HOST_CC" \
 	-DFFMPEG_CPU=$FFMPEG_CPU
 make -j$NCPU
 
