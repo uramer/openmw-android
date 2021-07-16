@@ -9,10 +9,12 @@
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#464646"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:subtitleTextColor="#281E14"
+        app:titleTextColor="#FF9800" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="4"
 
-                />
+                android:background="#282828" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
@@ -38,7 +40,7 @@
                 android:layout_gravity="bottom|right"
                 android:layout_margin="16dp"
                 android:src="@android:drawable/ic_media_play"
-                app:backgroundTint="#2196F3"
+                app:backgroundTint="#FF9800"
                 app:rippleColor="#FFFFFF" />
         </FrameLayout>
     </LinearLayout>

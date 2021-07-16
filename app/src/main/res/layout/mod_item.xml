@@ -3,35 +3,36 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#282828"
+    android:backgroundTint="#00FFFFFF"
     android:orientation="horizontal"
-    android:background="@android:color/white"
-    >
+    android:visibility="visible">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_drag_handle_black_24dp"
         android:id="@+id/handle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:tint="#aaa"
         android:padding="10dp"
-        />
+        android:src="@drawable/ic_drag_handle_black_24dp"
+        android:tint="#969696" />
 
     <TextView
         android:id="@+id/txtTitle"
-        android:text="Mod Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:textColor="@android:color/black"
-    />
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Mod Name"
+        android:textAlignment="viewStart"
+        android:textColor="#969696"
+        android:textSize="18sp" />
 
     <CheckBox
-        android:paddingRight="10dp"
         android:id="@+id/modCheckbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp" />
 
 </LinearLayout>

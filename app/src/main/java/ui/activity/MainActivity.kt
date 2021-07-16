@@ -61,6 +61,7 @@ import utils.MyApp
 import utils.Utils.hideAndroidControls
 import java.util.*
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
 
@@ -362,19 +363,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        // Get scaling factor from config; if invalid or not provided, generate one
+//***********************************************************************************************************************************************************
+
         var scaling = 0f
 
         try {
             scaling = prefs.getString("pref_uiScaling", "")!!.toFloat()
         } catch (e: NumberFormatException) {
-            // Reset the invalid setting
             with(prefs.edit()) {
                 putString("pref_uiScaling", "")
                 apply()
             }
         }
-
         // set up gamma, if invalid, use the default (1.0)
         var gamma = 1.0f
         try {
@@ -431,58 +431,102 @@ class MainActivity : AppCompatActivity() {
 
                 file.Writer.write(Constants.OPENMW_CFG, "encoding", prefs!!.getString("pref_encoding", GameInstaller.DEFAULT_CHARSET_PREF)!!)
 
+                var settingsFile = File(Constants.USER_CONFIG + "/settings.cfg")
+                var settingsFolder = File(Constants.USER_CONFIG)
+                settingsFolder.mkdirs()
+
+                val settingsFileCreated :Boolean = settingsFile.createNewFile()
+                if(settingsFileCreated)
+                    settingsFile.writeText(File(filesDir, "config/settings.cfg").readText())
+
+
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "scaling factor", "%.2f".format(Locale.ROOT, scaling))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "viewing distance", prefs.getString("pref_viewing_distance", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "framerate limit", prefs.getString("pref_framerate_limit", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "antialiasing", prefs.getString("pref_antialiasing", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "async num threads", prefs.getString("pref_async", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "show owned", prefs.getString("pref_show_owned", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "strength influences hand to hand", prefs.getString("pref_strength_influences_hand_to_hand", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "projectiles enchant multiplier", prefs.getString("pref_projectiles_enchant_multiplier", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "rtt size", prefs.getString("pref_rtt_size", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "reflection detail", prefs.getString("pref_reflection_detail", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "lod factor", prefs.getString("pref_lod_factor", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "difficulty", prefs.getString("pref_difficulty", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "target framerate", prefs.getString("pref_target_framerate", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "small feature culling pixel size", prefs.getString("pref_small_feature_culling_pixel_size", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "max quicksaves", prefs.getString("pref_max_quicksaves", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload num threads", prefs.getString("pref_preload_num_threads", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "density", prefs.getString("pref_density", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "min chunk size", prefs.getString("pref_min_chunk_size", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "stomp mode", prefs.getString("pref_stomp_mode", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "stomp intensity", prefs.getString("pref_stomp_intensity", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vertex lod mod", prefs.getString("pref_vertex_composite_lod", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map level", prefs.getString("pref_vertex_composite_lod", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging min size", prefs.getString("pref_object_paging_min_size", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "lighting method", prefs.getString("pref_lighting_method", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "max lights", prefs.getString("pref_max_lights", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "minimum interior brightness", prefs.getString("pref_minimum_interior_brightness", "true")!!)
+
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vsync", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_vsync", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preloading", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "distant terrain", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_distant", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "force shaders", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_shaders", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "force per pixel lighting", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_pix_light", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "clamp lighting", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_clamp_lighting", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "radial fog", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_radfog", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "enable gyroscope", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_gyroscope", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "stretch menu background", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_stretch_menu_background", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "color topic enable", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_color_topic_enable", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "show projectile damage", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_show_projectile_damage", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "show melee info", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_show_melee_info", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "show enchant chance", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_show_enchant_chance", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "best attack", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_best_attack", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "classic reflected absorb spells behavior", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_classic_reflected_absorb_spells_behavior", false)) "true" else "false"))   
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "show effect duration", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_show_effect_duration", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "prevent merchant equipping", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_prevent_merchant_equipping", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "enchanted weapons are magical", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_enchanted_weapons_are_magical", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "followers attack on sight", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_followers_attack_on_sight", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "can loot during death animation", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_can_loot_during_death_animation", false)) "true" else "false")) 
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "rebalance soul gem values", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_rebalance_soul_gem_values", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "use additional anim sources", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_use_additional_anim_sources", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "barter disposition change is permanent", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_barter_disposition_change_is_permanent", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "weapon sheathing", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_weapon_sheathing", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "shield sheathing", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_shield_sheathing", false)) "true" else "false")) 
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "only appropriate ammunition bypasses resistance", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_only_appropriate_ammunition_bypasses_resistance", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "use magic item animations", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_use_magic_item_animations", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "normalise race speed", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_normalise_race_speed", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "uncapped damage fatigue", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_uncapped_damage_fatigue", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "turn to movement direction", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_turn_to_movement_direction", false)) "true" else "false")) 
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "smooth movement", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_smooth_movement", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "NPCs avoid collisions", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_NPCs_avoid_collisions", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "NPCs give way", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_NPCs_give_way", false)) "true" else "false")) 
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "swim upward correction", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_swim_upward_correction", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "trainers training skills based on base skill", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_trainers_training_skills_based_on_base_skill", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "always allow stealing from knocked out actors", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_always_allow_stealing_from_knocked_out_actors", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "graphic herbalism", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_graphic_herbalism", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "allow actors to follow over water surface", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_allow_actors_to_follow_over_water_surface", false)) "true" else "false")) 
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "shader", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_shader_water", false)) "true" else "false"))     
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "refraction", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_refraction", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "head bobbing", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_head_bobbing", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "view over shoulder", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_view_over_shoulder", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "auto switch shoulder", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_auto_switch_shoulder", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preview if stand still", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preview_if_stand_still", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "deferred preview rotation", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_deferred_preview_rotation", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "subtitles", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_subtitles", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "toggle sneak", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_toggle_sneak", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "small feature culling", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_small_feature_culling", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "auto use object normal maps", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_auto_use_pbr", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "auto use object specular maps", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_auto_use_pbr", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "auto use terrain normal maps", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_auto_use_pbr", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "auto use terrain specular maps", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_auto_use_pbr", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "apply lighting to environment maps", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_apply_lighting_to_environment_maps", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "autosave", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_autosave", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "timeplayed", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_timeplayed", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_groundcover_enable", false)) "true" else "false"))
+
                 configureDefaultsBin(mapOf(
-                        "scaling factor" to "%.2f".format(Locale.ROOT, scaling),
-                        // android-specific defaults
-                        "viewing distance" to "2048.0",
-                        "toggle sneak" to "true",
-                        "camera sensitivity" to "0.4",
-                        // and a bunch of windows positioning
-                        "stats x" to "0.0",
-                        "stats y" to "0.0",
-                        "stats w" to "0.375",
-                        "stats h" to "0.4275",
-                        "spells x" to "0.625",
-                        "spells y" to "0.5725",
-                        "spells w" to "0.375",
-                        "spells h" to "0.4275",
-                        "map x" to "0.625",
-                        "map y" to "0.0",
-                        "map w" to "0.375",
-                        "map h" to "0.5725",
-                        "inventory y" to "0.4275",
-                        "inventory w" to "0.6225",
-                        "inventory h" to "0.5725",
-                        "inventory container x" to "0.0",
-                        "inventory container y" to "0.4275",
-                        "inventory container w" to "0.6225",
-                        "inventory container h" to "0.5725",
-                        "inventory barter x" to "0.0",
-                        "inventory barter y" to "0.4275",
-                        "inventory barter w" to "0.6225",
-                        "inventory barter h" to "0.5725",
-                        "inventory companion x" to "0.0",
-                        "inventory companion y" to "0.4275",
-                        "inventory companion w" to "0.6225",
-                        "inventory companion h" to "0.5725",
-                        "dialogue x" to "0.095",
-                        "dialogue y" to "0.095",
-                        "dialogue w" to "0.810",
-                        "dialogue h" to "0.890",
-                        "console x" to "0.0",
-                        "console y" to "0.0",
-                        "container x" to "0.25",
-                        "container y" to "0.0",
-                        "container w" to "0.75",
-                        "container h" to "0.375",
-                        "barter x" to "0.25",
-                        "barter y" to "0.0",
-                        "barter w" to "0.75",
-                        "barter h" to "0.375",
-                        "companion x" to "0.25",
-                        "companion y" to "0.0",
-                        "companion w" to "0.75",
-                        "companion h" to "0.375"
+
+                        "camera sensitivity" to "0.4"
                 ))
 
                 runOnUiThread {

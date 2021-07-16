@@ -24,6 +24,7 @@ object Constants {
     val APP_PREFERENCES = "settings"
     val HIDE_CONTROLS = "pref_hide_controls"
 
+
     // TODO: the comment below is outdated
     // Base path: [/sdcard]/Android/data/[com.libopenmw.openmw]/
     // * /sdcard - in theory, can be different, haven't seen any on modern android though

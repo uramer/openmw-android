@@ -97,7 +97,7 @@ class GameActivity : SDLActivity() {
 
         val envline: String = PreferenceManager.getDefaultSharedPreferences(this).getString("envLine", "").toString()
         if (envline.length > 0) {
-            val envs: List<String> = envline.split(" ", "\n")
+            val envs: List<String> = envline.split(" ")
             var i = 0
 
             repeat(envs.count())

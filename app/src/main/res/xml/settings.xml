@@ -5,119 +5,620 @@
         android:title="@string/general_settings">
 
         <ListPreference
-            android:key="pref_encoding"
-            android:summary="%s"
-            android:title="@string/pref_encoding"
+            android:defaultValue="@string/pref_encoding_default"
             android:dialogTitle="@string/pref_encoding"
             android:entries="@array/pref_encoding_entries"
             android:entryValues="@array/pref_encoding_values"
-            android:defaultValue="@string/pref_encoding_default"
-            />
+            android:key="pref_encoding"
+            android:summary="%s"
+            android:title="@string/pref_encoding" />
 
         <Preference
             android:key="game_files"
-            android:title="@string/game_files"
-            />
+            android:title="@string/game_files" />
 
         <Preference
-            android:title="@string/mods"
             android:key="pref_mods"
-            />
+            android:title="@string/mods" />
     </PreferenceCategory>
 
 
     <PreferenceCategory android:title="@string/pref_ui">
         <Preference
-            android:title="@string/action_show_screen_controls"
             android:key="pref_controls"
-            />
+            android:title="@string/action_show_screen_controls" />
 
         <EditTextPreference
-            android:key="pref_gamma"
-            android:title="@string/pref_gamma"
+            android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
-            android:inputType="numberDecimal"
             android:hint="1.0"
-            />
+            android:inputType="numberDecimal"
+            android:key="pref_gamma"
+            android:textAllCaps="false"
+            android:title="@string/pref_gamma" />
 
         <EditTextPreference
-            android:key="pref_uiScaling"
-            android:title="@string/pref_uiScaling"
             android:dialogTitle="@string/pref_uiScaling"
-            android:inputType="numberDecimal"
             android:hint="1.5"
-            />
+            android:inputType="numberDecimal"
+            android:key="pref_uiScaling"
+            android:textStyle="bold"
+            android:title="@string/pref_uiScaling" />
 
         <ListPreference
-            android:key="pref_mouse_mode"
-            android:title="@string/pref_mouse_mode"
+            android:defaultValue="@string/pref_mouse_mode_default"
             android:dialogTitle="@string/pref_mouse_mode"
             android:entries="@array/pref_mouse_mode_entries"
             android:entryValues="@array/pref_mouse_mode_values"
-            android:defaultValue="@string/pref_mouse_mode_default"
+            android:key="pref_mouse_mode"
             android:summary="%s"
-            />
+            android:title="@string/pref_mouse_mode" />
+
+        <EditTextPreference
+            android:dialogTitle="@string/pref_customResolution"
+            android:hint="640x480"
+            android:key="pref_customResolution"
+            android:title="@string/pref_customResolution" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="pref_hide_controls"
             android:title="@string/pref_hide_controls" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="pref_always_show_top_bar"
             android:title="@string/pref_always_show_top_bar" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="pref_show_qp"
             android:title="@string/pref_show_qp" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="pref_show_fn"
             android:title="@string/pref_show_fn" />
 
-        <EditTextPreference
-            android:key="pref_customResolution"
-            android:title="@string/pref_customResolution"
-            android:dialogTitle="@string/pref_customResolution"
-            android:hint="640x480"
-            />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_gyroscope"
+            android:title="@string/pref_gyroscope" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="pref_screen_keeper"
-            android:title="@string/pref_screen_keeper"/>
+            android:title="@string/pref_screen_keeper" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_stretch_menu_background"
+            android:title="@string/pref_stretch_menu_background" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_color_topic_enable"
+            android:title="@string/pref_color_topic_enable" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_subtitles"
+            android:title="@string/pref_subtitles" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/category_performance">
+
         <ListPreference
-            android:key="pref_physicsFPS2"
-            android:title="@string/pref_physicsFPS2"
+            android:defaultValue="@string/pref_physicsFPS2_default"
             android:dialogTitle="@string/pref_physicsFPS2"
             android:entries="@array/pref_physicsFPS2_entries"
             android:entryValues="@array/pref_physicsFPS2_entries"
-            android:defaultValue="@string/pref_physicsFPS2_default"
+            android:key="pref_physicsFPS2"
             android:summary="%s"
-            />
+            android:title="@string/pref_physicsFPS2" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_vsync"
+            android:title="@string/pref_vsync" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_framerate_limit_default"
+            android:dialogTitle="@string/pref_framerate_limit"
+            android:entries="@array/pref_framerate_limit_entries"
+            android:entryValues="@array/pref_framerate_limit_values"
+            android:key="pref_framerate_limit"
+            android:summary="%s"
+            android:title="@string/pref_framerate_limit" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_target_framerate_default"
+            android:dialogTitle="@string/pref_target_framerate"
+            android:entries="@array/pref_target_framerate_entries"
+            android:entryValues="@array/pref_target_framerate_values"
+            android:key="pref_target_framerate"
+            android:summary="%s"
+            android:title="@string/pref_target_framerate" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_preloading"
+            android:title="@string/pref_preloading" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_preload_num_threads_default"
+            android:dialogTitle="@string/pref_preload_num_threads"
+            android:entries="@array/pref_preload_num_threads_entries"
+            android:entryValues="@array/pref_preload_num_threads_values"
+            android:key="pref_preload_num_threads"
+            android:summary="%s"
+            android:title="@string/pref_preload_num_threads" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_async_default"
+            android:dialogTitle="@string/pref_async"
+            android:entries="@array/pref_async_entries"
+            android:entryValues="@array/pref_async_values"
+            android:key="pref_async"
+            android:summary="%s"
+            android:title="@string/pref_async" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_videopref">
+
+        <ListPreference
+            android:defaultValue="@string/pref_graphicsLibrary_default"
+            android:dialogTitle="@string/pref_graphicsLibrary"
+            android:entries="@array/pref_graphicsLibrary_entries"
+            android:entryValues="@array/pref_graphicsLibrary_values"
+            android:key="pref_graphicsLibrary_v2"
+            android:summary="%s"
+            android:title="@string/pref_graphicsLibrary" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_viewing_distance_default"
+            android:dialogTitle="@string/pref_viewing_distance"
+            android:entries="@array/pref_viewing_distance_entries"
+            android:entryValues="@array/pref_viewing_distance_values"
+            android:key="pref_viewing_distance"
+            android:summary="%s"
+            android:title="@string/pref_viewing_distance" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_antialiasing_default"
+            android:dialogTitle="@string/pref_antialiasing"
+            android:entries="@array/pref_antialiasing_entries"
+            android:entryValues="@array/pref_antialiasing_values"
+            android:key="pref_antialiasing"
+            android:summary="%s"
+            android:title="@string/pref_antialiasing" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_small_feature_culling"
+            android:title="@string/pref_small_feature_culling" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_small_feature_culling_pixel_size_default"
+            android:dialogTitle="@string/pref_small_feature_culling_pixel_size"
+            android:entries="@array/pref_small_feature_culling_pixel_size_entries"
+            android:entryValues="@array/pref_small_feature_culling_pixel_size_values"
+            android:key="pref_small_feature_culling_pixel_size"
+            android:summary="%s"
+            android:title="@string/pref_small_feature_culling_pixel_size" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_distant"
+            android:title="@string/pref_distant" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_shaders"
+            android:title="@string/pref_shaders" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_auto_use_pbr"
+            android:title="@string/pref_auto_use_pbr" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_apply_lighting_to_environment_maps"
+            android:title="@string/pref_apply_lighting_to_environment_maps" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_pix_light"
+            android:title="@string/pref_pix_light" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_clamp_lighting"
+            android:title="@string/pref_clamp_lighting" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_lighting_method_default"
+            android:dialogTitle="@string/pref_lighting_method"
+            android:entries="@array/pref_lighting_method_entries"
+            android:entryValues="@array/pref_lighting_method_values"
+            android:key="pref_lighting_method"
+            android:summary="%s"
+            android:title="@string/pref_lighting_method" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_max_lights_default"
+            android:dialogTitle="@string/pref_max_lights"
+            android:entries="@array/pref_max_lights_entries"
+            android:entryValues="@array/pref_max_lights_values"
+            android:key="pref_max_lights"
+            android:summary="%s"
+            android:title="@string/pref_max_lights" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_minimum_interior_brightness_default"
+            android:dialogTitle="@string/pref_minimum_interior_brightness"
+            android:entries="@array/pref_minimum_interior_brightness_entries"
+            android:entryValues="@array/pref_minimum_interior_brightness_values"
+            android:key="pref_minimum_interior_brightness"
+            android:summary="%s"
+            android:title="@string/pref_minimum_interior_brightness" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_radfog"
+            android:title="@string/pref_radfog" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_shader_water"
+            android:title="@string/pref_shader_water" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_refraction"
+            android:title="@string/pref_refraction" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_rtt_size_default"
+            android:dialogTitle="@string/pref_rtt_size"
+            android:entries="@array/pref_rtt_size_entries"
+            android:entryValues="@array/pref_rtt_size_values"
+            android:key="pref_rtt_size"
+            android:summary="%s"
+            android:title="@string/pref_rtt_size" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_reflection_detail_default"
+            android:dialogTitle="@string/pref_reflection_detail"
+            android:entries="@array/pref_reflection_detail_entries"
+            android:entryValues="@array/pref_reflection_detail_values"
+            android:key="pref_reflection_detail"
+            android:summary="%s"
+            android:title="@string/pref_reflection_detail" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_lod_factor_default"
+            android:dialogTitle="@string/pref_lod_factor"
+            android:entries="@array/pref_lod_factor_entries"
+            android:entryValues="@array/pref_lod_factor_values"
+            android:key="pref_lod_factor"
+            android:summary="%s"
+            android:title="@string/pref_lod_factor" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_vertex_composite_lod_default"
+            android:dialogTitle="@string/pref_vertex_composite_lod"
+            android:entries="@array/pref_vertex_composite_lod_entries"
+            android:entryValues="@array/pref_vertex_composite_lod_values"
+            android:key="pref_vertex_composite_lod"
+            android:summary="%s"
+            android:title="@string/pref_vertex_composite_lod" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_object_paging_min_size_default"
+            android:dialogTitle="@string/pref_object_paging_min_size"
+            android:entries="@array/pref_object_paging_min_size_entries"
+            android:entryValues="@array/pref_object_paging_min_size_values"
+            android:key="pref_object_paging_min_size"
+            android:summary="%s"
+            android:title="@string/pref_object_paging_min_size" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_game">
+
+        <ListPreference
+            android:defaultValue="@string/pref_difficulty_default"
+            android:dialogTitle="@string/pref_difficulty"
+            android:entries="@array/pref_difficulty_entries"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="pref_difficulty"
+            android:summary="%s"
+            android:title="@string/pref_difficulty" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_toggle_sneak"
+            android:title="@string/pref_toggle_sneak" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_projectile_damage"
+            android:title="@string/pref_show_projectile_damage" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_melee_info"
+            android:title="@string/pref_show_melee_info" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_enchant_chance"
+            android:title="@string/pref_show_enchant_chance" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_best_attack"
+            android:title="@string/pref_best_attack" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_classic_reflected_absorb_spells_behavior"
+            android:title="@string/pref_classic_reflected_absorb_spells_behavior" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_show_effect_duration"
+            android:title="@string/pref_show_effect_duration" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_prevent_merchant_equipping"
+            android:title="@string/pref_prevent_merchant_equipping" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_enchanted_weapons_are_magical"
+            android:title="@string/pref_enchanted_weapons_are_magical" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_followers_attack_on_sight"
+            android:title="@string/pref_followers_attack_on_sight" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_can_loot_during_death_animation"
+            android:title="@string/pref_can_loot_during_death_animation" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_rebalance_soul_gem_values"
+            android:title="@string/pref_rebalance_soul_gem_values" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_use_additional_anim_sources"
+            android:title="@string/pref_use_additional_anim_sources" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_barter_disposition_change_is_permanent"
+            android:title="@string/pref_barter_disposition_change_is_permanent" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_weapon_sheathing"
+            android:title="@string/pref_weapon_sheathing" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_shield_sheathing"
+            android:title="@string/pref_shield_sheathing" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_only_appropriate_ammunition_bypasses_resistance"
+            android:title="@string/pref_only_appropriate_ammunition_bypasses_resistance" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_use_magic_item_animations"
+            android:title="@string/pref_use_magic_item_animations" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_normalise_race_speed"
+            android:title="@string/pref_normalise_race_speed" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_uncapped_damage_fatigue"
+            android:title="@string/pref_uncapped_damage_fatigue" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_turn_to_movement_direction"
+            android:title="@string/pref_turn_to_movement_direction" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_smooth_movement"
+            android:title="@string/pref_smooth_movement" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_NPCs_avoid_collisions"
+            android:title="@string/pref_NPCs_avoid_collisions" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_NPCs_give_way"
+            android:title="@string/pref_NPCs_give_way" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_swim_upward_correction"
+            android:title="@string/pref_swim_upward_correction" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_trainers_training_skills_based_on_base_skill"
+            android:title="@string/pref_trainers_training_skills_based_on_base_skill" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_always_allow_stealing_from_knocked_out_actors"
+            android:title="@string/pref_always_allow_stealing_from_knocked_out_actors" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_graphic_herbalism"
+            android:title="@string/pref_graphic_herbalism" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_allow_actors_to_follow_over_water_surface"
+            android:title="@string/pref_allow_actors_to_follow_over_water_surface" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_show_owned_default"
+            android:dialogTitle="@string/pref_show_owned"
+            android:entries="@array/pref_show_owned_entries"
+            android:entryValues="@array/pref_show_owned_values"
+            android:key="pref_show_owned"
+            android:summary="%s"
+            android:title="@string/pref_show_owned" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_strength_influences_hand_to_hand_default"
+            android:dialogTitle="@string/pref_strength_influences_hand_to_hand"
+            android:entries="@array/pref_strength_influences_hand_to_hand_entries"
+            android:entryValues="@array/pref_strength_influences_hand_to_hand_values"
+            android:key="pref_strength_influences_hand_to_hand"
+            android:summary="%s"
+            android:title="@string/pref_strength_influences_hand_to_hand" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_projectiles_enchant_multiplier_default"
+            android:dialogTitle="@string/pref_projectiles_enchant_multiplier"
+            android:entries="@array/pref_projectiles_enchant_multiplier_entries"
+            android:entryValues="@array/pref_projectiles_enchant_multiplier_values"
+            android:key="pref_projectiles_enchant_multiplier"
+            android:summary="%s"
+            android:title="@string/pref_projectiles_enchant_multiplier" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_save_options">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_autosave"
+            android:title="@string/pref_autosave" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_timeplayed"
+            android:title="@string/pref_timeplayed" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_max_quicksaves_default"
+            android:dialogTitle="@string/pref_max_quicksaves"
+            android:entries="@array/pref_max_quicksaves_entries"
+            android:entryValues="@array/pref_max_quicksaves_values"
+            android:key="pref_max_quicksaves"
+            android:summary="%s"
+            android:title="@string/pref_max_quicksaves" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_camera">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_head_bobbing"
+            android:title="@string/pref_head_bobbing" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_view_over_shoulder"
+            android:title="@string/pref_view_over_shoulder" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_auto_switch_shoulder"
+            android:title="@string/pref_auto_switch_shoulder" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_preview_if_stand_still"
+            android:title="@string/pref_preview_if_stand_still" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_deferred_preview_rotation"
+            android:title="@string/pref_deferred_preview_rotation" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_groundcover">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_groundcover_enable"
+            android:title="@string/pref_groundcover_enable" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_density_default"
+            android:dialogTitle="@string/pref_density"
+            android:entries="@array/pref_density_entries"
+            android:entryValues="@array/pref_density_values"
+            android:key="pref_density"
+            android:summary="%s"
+            android:title="@string/pref_density" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_min_chunk_size_default"
+            android:dialogTitle="@string/pref_min_chunk_size"
+            android:entries="@array/pref_min_chunk_size_entries"
+            android:entryValues="@array/pref_min_chunk_size_values"
+            android:key="pref_min_chunk_size"
+            android:summary="%s"
+            android:title="@string/pref_min_chunk_size" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_stomp_mode_default"
+            android:dialogTitle="@string/pref_stomp_mode"
+            android:entries="@array/pref_stomp_mode_entries"
+            android:entryValues="@array/pref_stomp_mode_values"
+            android:key="pref_stomp_mode"
+            android:summary="%s"
+            android:title="@string/pref_stomp_mode" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_stomp_intensity_default"
+            android:dialogTitle="@string/pref_stomp_intensity"
+            android:entries="@array/pref_stomp_intensity_entries"
+            android:entryValues="@array/pref_stomp_intensity_values"
+            android:key="pref_stomp_intensity"
+            android:summary="%s"
+            android:title="@string/pref_stomp_intensity" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_advanced">
         <EditTextPreference
             android:key="commandLine"
-            android:title="@string/pref_commandLine"
-            />
+            android:title="@string/pref_commandLine" />
 
         <EditTextPreference
             android:key="envLine"
-            android:title="@string/pref_envLine"
-            />
+            android:title="@string/pref_envLine" />
 
-        <ListPreference
-            android:key="pref_graphicsLibrary_v2"
-            android:title="@string/pref_graphicsLibrary"
-            android:dialogTitle="@string/pref_graphicsLibrary"
-            android:entries="@array/pref_graphicsLibrary_entries"
-            android:entryValues="@array/pref_graphicsLibrary_values"
-            android:defaultValue="@string/pref_graphicsLibrary_default"
-            android:summary="%s"
-        />
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -37,11 +37,67 @@
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
     <string name="game_files">Файлы игры</string>
+    <string name="cat_game">Настройка игровых механик</string>
+    <string name="pref_shaders">Шейдеры</string>
+    <string name="pref_pix_light">Пиксельное освещение</string>
+    <string name="pref_radfog">Радиальный туман</string>
+    <string name="pref_gyroscope">Гироскоп</string>
+    <string name="pref_stretch_menu_background">Растянуть фон на весь экран</string>
+    <string name="pref_color_topic_enable">Подсветка неактуальных диалогов</string>
+
+    <string name="pref_show_projectile_damage">Показать бонус к урону стрел и болтов</string>
+    <string name="pref_show_melee_info">Подробная информацию об оружии</string>
+    <string name="pref_show_enchant_chance">Показать вероятность успеха зачарования</string>
+    <string name="pref_best_attack">Всегда лучший удар</string>
+    <string name="pref_classic_reflected_absorb_spells_behavior">Reflected absorb не имеют эффекта.</string>
+    <string name="pref_show_effect_duration">Показывать продолжительность заклинания</string>
+    <string name="pref_prevent_merchant_equipping">Запрет торговцам одевать купленное</string>
+    <string name="pref_enchanted_weapons_are_magical">Зачарованное оружие без магического флага</string>
+    <string name="pref_followers_attack_on_sight">Союзники сразу атакуют врагов</string>
+    <string name="pref_can_loot_during_death_animation">Грабёж во время анимации смерти</string>
+    <string name="pref_rebalance_soul_gem_values">Ребаланс цен камней душ</string>
+    <string name="pref_use_additional_anim_sources">Дополнительные анимации</string>
+    <string name="pref_barter_disposition_change_is_permanent">Торговец помнит отношение к вам</string>
+    <string name="pref_weapon_sheathing">Кобура для оружия (мод)</string>
+    <string name="pref_shield_sheathing">Кобура для щитов (мод)</string>
+    <string name="pref_only_appropriate_ammunition_bypasses_resistance">Необычная аммуниция обходит сопротевление</string>
+    <string name="pref_use_magic_item_animations">Анимация использования для зачаров</string>
+    <string name="pref_normalise_race_speed">Нормализация скорости расс</string>
+    <string name="pref_uncapped_damage_fatigue">Повреждение усталости валит с ног</string>
+    <string name="pref_turn_to_movement_direction">Тело ведет себя реалистично</string>
+    <string name="pref_smooth_movement">Плавное движение</string>
+    <string name="pref_NPCs_avoid_collisions">NPC стараются не сталкиваться</string>
+    <string name="pref_NPCs_give_way">NPC уступают дорогу</string>
+    <string name="pref_swim_upward_correction">Более реалистичное плавание</string>
+    <string name="pref_trainers_training_skills_based_on_base_skill">Навыки на основе атрибутов</string>
+    <string name="pref_always_allow_stealing_from_knocked_out_actors">Кража у сбитых с ног NPC</string>
+    <string name="pref_graphic_herbalism">Сбор ростительности (мод)</string>
+    <string name="pref_allow_actors_to_follow_over_water_surface">Все NPC умеют плавать</string>
+    <string name="pref_shader_water">Шейдерная вода</string>
+    <string name="pref_refraction">Включить приломление</string>
+    <string name="pref_head_bobbing">Башкотряс</string>
+    <string name="pref_view_over_shoulder">Камера от плеча</string>
+    <string name="pref_auto_switch_shoulder">Переключать плечи когда препятствие</string>
+    <string name="pref_preview_if_stand_still">Вращение камеры когда бездействие</string>
+    <string name="pref_deferred_preview_rotation">Повернуть камеру в сторону взгляда</string>
+    <string name="pref_camera">Настройки камеры</string>
+    <string name="pref_subtitles">Субтитры</string>
+    <string name="pref_toggle_sneak">Всегда скрытность</string>
+    <string name="pref_small_feature_culling">Отсекать мелкие обьекты</string>
+    <string name="pref_auto_use_pbr">Автоматически использовать PBR текстуры</string>
+    <string name="pref_apply_lighting_to_environment_maps">Применить освещение к отражениям</string>
+    <string name="pref_autosave">Автосохранения во время отдыха</string>
+    <string name="pref_timeplayed">Отображать наигранное время</string>
+    <string name="pref_save_options">Настройки сохранения игры</string>
+    <string name="pref_clamp_lighting">Зажимное освещение</string>
+    <string name="pref_groundcover">Параметры травы</string>
+    <string name="pref_groundcover_enable">Включить траву</string>
 
     <!-- Graphics library -->
     <string name="pref_graphicsLibrary">Графическая библиотека</string>
     <string name="pref_graphicsLibrary_default">gles2</string>
-    <string name="pref_advanced">Дополнительно</string>
+    <string name="pref_advanced">Отладка</string>
+    <string name="pref_videopref">Графика</string>
     <string name="pref_commandLine">Командная строка</string>
     <string name="pref_envLine">Переменные среды</string>
     <string name="pref_ui">Интерфейс</string>
@@ -160,4 +216,311 @@
     <string name="pref_show_fn">Включить FN кнопки</string>
     <string name="pref_always_show_top_bar">Всегда отображать все иконки</string>
 
+    <string name="pref_viewing_distance">Дальность видимости</string>
+    <string name="pref_viewing_distance_default">8192</string>
+    <string-array name="pref_viewing_distance_entries">
+	<item>Ультра</item>
+	<item>Высокая</item>
+	<item>Средняя</item>
+	<item>Нормальная</item>
+	<item>Минимальная</item>
+    </string-array>
+    <string-array name="pref_viewing_distance_values">
+        <item>81920</item>
+        <item>32768</item>
+        <item>16384</item>
+        <item>8192</item>
+        <item>2048</item>
+    </string-array>
+    <string name="pref_framerate_limit">Ограничитель FPS</string>
+    <string name="pref_framerate_limit_default">60</string>
+    <string-array name="pref_framerate_limit_entries">
+	<item>Без ограничений</item>
+	<item>60 fps</item>
+	<item>30 fps</item>
+    </string-array>
+    <string-array name="pref_framerate_limit_values">
+        <item>0</item>
+        <item>60</item>
+        <item>30</item>
+    </string-array>
+	<string name="pref_vsync">Вертикальная синхронизация</string>
+	<string name="pref_preloading">Предзагрузка</string>
+	<string name="pref_distant">Далёкий ландшафт</string>
+    <string name="pref_antialiasing">Полноэкранное сглаживание</string>
+    <string name="pref_antialiasing_default">0</string>
+    <string-array name="pref_antialiasing_entries">
+	<item>Выкл</item>
+	<item>4х кратное</item>
+    </string-array>
+    <string-array name="pref_antialiasing_values">
+        <item>0</item>
+        <item>4</item>
+    </string-array>
+    <string name="pref_async">Асинхронная физика</string>
+    <string name="pref_async_default">1</string>
+    <string-array name="pref_async_entries">
+	<item>Два потока</item>
+	<item>Один поток</item>
+	<item>Выключено</item>
+    </string-array>
+    <string-array name="pref_async_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_show_owned">Подсказки для вора</string>
+    <string name="pref_show_owned_default">0</string>
+    <string-array name="pref_show_owned_entries">
+	<item>Оба варианта сразу</item>
+	<item>Меняется цвет прицела</item>
+	<item>Всплывающая подсказка</item>
+	<item>Без подсказок</item>
+    </string-array>
+    <string-array name="pref_show_owned_values">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_strength_influences_hand_to_hand">Формула урона MCP в рукопашке</string>
+    <string name="pref_strength_influences_hand_to_hand_default">0</string>
+    <string-array name="pref_strength_influences_hand_to_hand_entries">
+	<item>Включить, кроме оборотней</item>
+	<item>Включить</item>
+	<item>Выключить</item>
+    </string-array>
+    <string-array name="pref_strength_influences_hand_to_hand_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_projectiles_enchant_multiplier">Способ зачарования стрел и болтов</string>
+    <string name="pref_projectiles_enchant_multiplier_default">0</string>
+    <string-array name="pref_projectiles_enchant_multiplier_entries">
+	<item>Сразу несколько</item>
+	<item>По одной</item>
+    </string-array>
+    <string-array name="pref_projectiles_enchant_multiplier_values">
+        <item>0.25</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_rtt_size">Качество отражения воды</string>
+    <string name="pref_rtt_size_default">512</string>
+    <string-array name="pref_rtt_size_entries">
+	<item>Высокое</item>
+	<item>Среднее</item>
+	<item>Низкое</item>
+	<item>Очень низкое</item>
+    </string-array>
+    <string-array name="pref_rtt_size_values">
+        <item>2048</item>
+        <item>1024</item>
+        <item>512</item>
+        <item>256</item>
+    </string-array>
+    <string name="pref_reflection_detail">Количество обьектов отражения</string>
+    <string name="pref_reflection_detail_default">0</string>
+    <string-array name="pref_reflection_detail_entries">
+	<item>Ультра</item>
+	<item>Высокое</item>
+	<item>Среднее</item>
+	<item>Нормальное</item>
+	<item>Низкое</item>
+	<item>Выкл</item>
+    </string-array>
+    <string-array name="pref_reflection_detail_values">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_lod_factor">Детализация ландшафта</string>
+    <string name="pref_lod_factor_default">0.5</string>
+    <string-array name="pref_lod_factor_entries">
+	<item>Высокая</item>
+	<item>Средняя</item>
+	<item>Низкая</item>
+    </string-array>
+    <string-array name="pref_lod_factor_values">
+        <item>1.0</item>
+        <item>0.75</item>
+        <item>0.5</item>
+    </string-array>
+    <string name="pref_difficulty">Сложность игры</string>
+    <string name="pref_difficulty_default">0</string>
+    <string-array name="pref_difficulty_entries">
+	<item>Очень сложно</item>
+	<item>Сложно</item>
+	<item>Нормально</item>
+	<item>Легко</item>
+	<item>Очень легко</item>
+    </string-array>
+    <string-array name="pref_difficulty_values">
+        <item>100</item>
+        <item>50</item>
+        <item>0</item>
+        <item>-50</item>
+        <item>-100</item>
+    </string-array>
+    <string name="pref_target_framerate">FPS подзагрузки</string>
+    <string name="pref_target_framerate_default">60</string>
+    <string-array name="pref_target_framerate_entries">
+	<item>60 fps</item>
+	<item>30 fps</item>
+    </string-array>
+    <string-array name="pref_target_framerate_values">
+        <item>60</item>
+        <item>30</item>
+    </string-array>
+    <string name="pref_small_feature_culling_pixel_size">Параметры отсекателя обьектов</string>
+    <string name="pref_small_feature_culling_pixel_size_default">8</string>
+    <string-array name="pref_small_feature_culling_pixel_size_entries">
+	<item>Сильное отсечение</item>
+	<item>Нормальное отсечение</item>
+	<item>Лёгкое отсечение</item>
+    </string-array>
+    <string-array name="pref_small_feature_culling_pixel_size_values">
+        <item>16</item>
+        <item>8</item>
+        <item>2</item>
+    </string-array>
+    <string name="pref_max_quicksaves">Количество быстрых сохранений</string>
+    <string name="pref_max_quicksaves_default">1</string>
+    <string-array name="pref_max_quicksaves_entries">
+	<item>10 сохранений</item>
+	<item>5 сохранений</item>
+	<item>1 сохранение</item>
+    </string-array>
+    <string-array name="pref_max_quicksaves_values">
+        <item>10</item>
+        <item>5</item>
+        <item>1</item>
+    </string-array>
+    <string name="pref_preload_num_threads">Потоки предзагрузки</string>
+    <string name="pref_preload_num_threads_default">1</string>
+    <string-array name="pref_preload_num_threads_entries">
+	<item>2 потока</item>
+	<item>1 поток</item>
+    </string-array>
+    <string-array name="pref_preload_num_threads_values">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string name="pref_density">Плотность травы</string>
+    <string name="pref_density_default">0.5</string>
+    <string-array name="pref_density_entries">
+	<item>Полная плотность</item>
+	<item>Половинная плотность</item>
+	<item>Частичная плотность</item>
+    </string-array>
+    <string-array name="pref_density_values">
+        <item>1</item>
+        <item>0.5</item>
+        <item>0.25</item>
+    </string-array>
+    <string name="pref_min_chunk_size">Минимаотный размер блока</string>
+    <string name="pref_min_chunk_size_default">0.5</string>
+    <string-array name="pref_min_chunk_size_entries">
+	<item>Полный блок</item>
+	<item>Половинный блок</item>
+	<item>Частичный блок</item>
+	<item>Маленький блок</item>
+    </string-array>
+    <string-array name="pref_min_chunk_size_values">
+        <item>1</item>
+        <item>0.5</item>
+        <item>0.25</item>
+        <item>0.125</item>
+    </string-array>
+    <string name="pref_stomp_mode">Реакция травы на главного героя</string>
+    <string name="pref_stomp_mode_default">0</string>
+    <string-array name="pref_stomp_mode_entries">
+	<item>Учитывается позиция и высота</item>
+	<item>Учитывается позиция</item>
+	<item>Не реагирует</item>
+    </string-array>
+    <string-array name="pref_stomp_mode_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_stomp_intensity">Интенсивность замятия травы</string>
+    <string name="pref_stomp_intensity_default">0</string>
+    <string-array name="pref_stomp_intensity_entries">
+	<item>Усиленное замятие</item>
+	<item>Нормальное замятие</item>
+	<item>Мягкое замятие</item>
+    </string-array>
+    <string-array name="pref_stomp_intensity_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string name="pref_vertex_composite_lod">Детализация ландшафта дополнительно</string>
+    <string name="pref_vertex_composite_lod_default">0</string>
+    <string-array name="pref_vertex_composite_lod_entries">
+	<item>Высокая</item>
+	<item>Средняя</item>
+	<item>Низкая</item>
+    </string-array>
+    <string-array name="pref_vertex_composite_lod_values">
+        <item>0</item>
+        <item>-0.1</item>
+        <item>-0.3</item>
+    </string-array>
+    <string name="pref_object_paging_min_size">Детализация Object Paging</string>
+    <string name="pref_object_paging_min_size_default">0.03</string>
+    <string-array name="pref_object_paging_min_size_entries">
+	<item>Высокая</item>
+	<item>Средняя</item>
+	<item>Низкая</item>
+    </string-array>
+    <string-array name="pref_object_paging_min_size_values">
+        <item>0.01</item>
+        <item>0.03</item>
+        <item>0.05</item>
+    </string-array>
+    <string name="pref_lighting_method">Метод освещения</string>
+    <string name="pref_lighting_method_default">legacy</string>
+    <string-array name="pref_lighting_method_entries">
+	<item>Продвинутый</item>
+	<item>Классический</item>
+    </string-array>
+    <string-array name="pref_lighting_method_values">
+        <item>shaders compatibility</item>
+        <item>legacy</item>
+    </string-array>
+    <string name="pref_max_lights">Количество источников света</string>
+    <string name="pref_max_lights_default">8</string>
+    <string-array name="pref_max_lights_entries">
+	<item>32</item>
+	<item>24</item>
+	<item>16</item>
+	<item>8</item>
+    </string-array>
+    <string-array name="pref_max_lights_values">
+	<item>32</item>
+	<item>24</item>
+	<item>16</item>
+	<item>8</item>
+    </string-array>
+    <string name="pref_minimum_interior_brightness">Яркость фона в интерьерах</string>
+    <string name="pref_minimum_interior_brightness_default">0.08</string>
+    <string-array name="pref_minimum_interior_brightness_entries">
+	<item>Максимальная яркость</item>
+	<item>Высокая яркость</item>
+	<item>Средняя яркость</item>
+	<item>Низкая яркость</item>
+	<item>Без фоновой подсветки</item>
+    </string-array>
+    <string-array name="pref_minimum_interior_brightness_values">
+	<item>1.0</item>
+	<item>0.5</item>
+	<item>0.2</item>
+	<item>0.08</item>
+	<item>0.0</item>
+    </string-array>
 </resources>
