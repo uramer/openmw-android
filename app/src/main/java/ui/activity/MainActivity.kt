@@ -439,6 +439,8 @@ class MainActivity : AppCompatActivity() {
                 if(settingsFileCreated)
                     settingsFile.writeText(File(filesDir, "config/settings.cfg").readText())
 
+                val enabler = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_global_functions", false)
+                if (enabler) {
 
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "scaling factor", "%.2f".format(Locale.ROOT, scaling))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "viewing distance", prefs.getString("pref_viewing_distance", "true")!!)
@@ -466,6 +468,7 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "lighting method", prefs.getString("pref_lighting_method", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "max lights", prefs.getString("pref_max_lights", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "minimum interior brightness", prefs.getString("pref_minimum_interior_brightness", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map resolution", prefs.getString("pref_composite_map_resolution", "true")!!)
 
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vsync", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_vsync", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preloading", false)) "true" else "false"))
@@ -523,6 +526,8 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "autosave", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_autosave", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "timeplayed", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_timeplayed", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_groundcover_enable", false)) "true" else "false"))
+                }
+
 
                 configureDefaultsBin(mapOf(
 

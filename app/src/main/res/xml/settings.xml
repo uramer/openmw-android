@@ -326,6 +326,15 @@
             android:summary="%s"
             android:title="@string/pref_object_paging_min_size" />
 
+        <ListPreference
+            android:defaultValue="@string/pref_composite_map_resolution_default"
+            android:dialogTitle="@string/pref_composite_map_resolution"
+            android:entries="@array/pref_composite_map_resolution_entries"
+            android:entryValues="@array/pref_composite_map_resolution_values"
+            android:key="pref_composite_map_resolution"
+            android:summary="%s"
+            android:title="@string/pref_composite_map_resolution" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/cat_game">
@@ -611,6 +620,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_advanced">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_global_functions"
+            android:title="@string/pref_global_functions" />
+
         <EditTextPreference
             android:key="commandLine"
             android:title="@string/pref_commandLine" />
