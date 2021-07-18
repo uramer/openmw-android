@@ -110,7 +110,7 @@
     <string name="config_was_reset">Настройки конфиг файла успешно сброшены до значений по умолчанию</string>
     <string name="pref_lang">Language settings</string>
     <string name="pref_encoding">Язык игры</string>
-    <string name="pref_encoding_default">win1252</string>
+    <string name="pref_encoding_default">win1251</string>
     <string name="btn_opacityPlus">Alpha+</string>
     <string name="btn_opacityMinus">Alpha-</string>
     <string name="btn_sizePlus">Size+</string>
@@ -118,6 +118,11 @@
     <string name="btn_resetControlsLayout">Reset to defaults</string>
     <string name="pref_physicsFPS2">FPS физики игры</string>
     <string name="pref_global_functions">Разрешить запись в settings.cfg</string>
+    <string name="pref_preload_exterior_grid">Предзагрузка внешних сеток</string>
+    <string name="pref_preload_fast_travel">Предзагрузка быстрых перемещений</string>
+    <string name="pref_preload_doors">Предзагрузка дверей</string>
+    <string name="pref_preload_instances">Предзагрузка экземпляров</string>
+    <string name="pref_object_paging">Подкачка обьектов</string>
 
 
     <string-array name="pref_graphicsLibrary_entries">
@@ -131,8 +136,13 @@
     </string-array>
 
     <string-array name="pref_physicsFPS2_entries">
-        <item>30</item>
+        <item>60 fps</item>
+        <item>30 fps</item>
+    </string-array>
+
+    <string-array name="pref_physicsFPS2_values">
         <item>60</item>
+        <item>30</item>
     </string-array>
 
     <string name="pref_unsafe_state_graph">Enable unsafe graphics optimizations</string>
@@ -233,7 +243,7 @@
         <item>8192</item>
         <item>2048</item>
     </string-array>
-    <string name="pref_framerate_limit">Ограничитель FPS</string>
+    <string name="pref_framerate_limit">FPS ограничителя</string>
     <string name="pref_framerate_limit_default">60</string>
     <string-array name="pref_framerate_limit_entries">
 	<item>Без ограничений</item>
@@ -251,12 +261,12 @@
     <string name="pref_antialiasing">Полноэкранное сглаживание</string>
     <string name="pref_antialiasing_default">0</string>
     <string-array name="pref_antialiasing_entries">
-	<item>Выкл</item>
 	<item>4х кратное</item>
+	<item>Выкл</item>
     </string-array>
     <string-array name="pref_antialiasing_values">
-        <item>0</item>
         <item>4</item>
+        <item>0</item>
     </string-array>
     <string name="pref_async">Асинхронная физика</string>
     <string name="pref_async_default">1</string>
@@ -403,8 +413,8 @@
     <string name="pref_preload_num_threads">Потоки предзагрузки</string>
     <string name="pref_preload_num_threads_default">1</string>
     <string-array name="pref_preload_num_threads_entries">
-	<item>2 потока</item>
-	<item>1 поток</item>
+	<item>Два потока</item>
+	<item>Один поток</item>
     </string-array>
     <string-array name="pref_preload_num_threads_values">
         <item>2</item>
@@ -472,7 +482,7 @@
         <item>-1</item>
         <item>-3</item>
     </string-array>
-    <string name="pref_object_paging_min_size">Детализация Object Paging</string>
+    <string name="pref_object_paging_min_size">Детализация подкачки обьектов</string>
     <string name="pref_object_paging_min_size_default">0.03</string>
     <string-array name="pref_object_paging_min_size_entries">
 	<item>Высокая</item>
@@ -535,5 +545,29 @@
 	<item>512</item>
 	<item>256</item>
 	<item>128</item>
+    </string-array>
+    <string name="pref_preload_distance">Дистанция предзагрузки</string>
+    <string name="pref_preload_distance_default">1000</string>
+    <string-array name="pref_preload_distance_entries">
+	<item>Сильно увеличенная</item>
+	<item>Увеличенная</item>
+	<item>Стандартная</item>
+    </string-array>
+    <string-array name="pref_preload_distance_values">
+	<item>5000</item>
+	<item>3000</item>
+	<item>1000</item>
+    </string-array>
+    <string name="pref_object_paging_merge_factor">Коэффициент слияния подкачки объектов</string>
+    <string name="pref_object_paging_merge_factor_default">3000</string>
+    <string-array name="pref_object_paging_merge_factor_entries">
+	<item>Сильно увеличенный</item>
+	<item>Увеличенный</item>
+	<item>Стандартный</item>
+    </string-array>
+    <string-array name="pref_object_paging_merge_factor_values">
+	<item>15000</item>
+	<item>3000</item>
+	<item>250</item>
     </string-array>
 </resources>

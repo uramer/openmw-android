@@ -113,15 +113,10 @@
             android:defaultValue="@string/pref_physicsFPS2_default"
             android:dialogTitle="@string/pref_physicsFPS2"
             android:entries="@array/pref_physicsFPS2_entries"
-            android:entryValues="@array/pref_physicsFPS2_entries"
+            android:entryValues="@array/pref_physicsFPS2_values"
             android:key="pref_physicsFPS2"
             android:summary="%s"
             android:title="@string/pref_physicsFPS2" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="pref_vsync"
-            android:title="@string/pref_vsync" />
 
         <ListPreference
             android:defaultValue="@string/pref_framerate_limit_default"
@@ -143,8 +138,42 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
+            android:key="pref_vsync"
+            android:title="@string/pref_vsync" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="pref_preloading"
             android:title="@string/pref_preloading" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_preload_exterior_grid"
+            android:title="@string/pref_preload_exterior_grid" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_preload_fast_travel"
+            android:title="@string/pref_preload_fast_travel" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_preload_doors"
+            android:title="@string/pref_preload_doors" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_preload_instances"
+            android:title="@string/pref_preload_instances" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_preload_distance_default"
+            android:dialogTitle="@string/pref_preload_distance"
+            android:entries="@array/pref_preload_distance_entries"
+            android:entryValues="@array/pref_preload_distance_values"
+            android:key="pref_preload_distance"
+            android:summary="%s"
+            android:title="@string/pref_preload_distance" />
 
         <ListPreference
             android:defaultValue="@string/pref_preload_num_threads_default"
@@ -318,6 +347,20 @@
             android:title="@string/pref_vertex_composite_lod" />
 
         <ListPreference
+            android:defaultValue="@string/pref_composite_map_resolution_default"
+            android:dialogTitle="@string/pref_composite_map_resolution"
+            android:entries="@array/pref_composite_map_resolution_entries"
+            android:entryValues="@array/pref_composite_map_resolution_values"
+            android:key="pref_composite_map_resolution"
+            android:summary="%s"
+            android:title="@string/pref_composite_map_resolution" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_object_paging"
+            android:title="@string/pref_object_paging" />
+
+        <ListPreference
             android:defaultValue="@string/pref_object_paging_min_size_default"
             android:dialogTitle="@string/pref_object_paging_min_size"
             android:entries="@array/pref_object_paging_min_size_entries"
@@ -327,13 +370,13 @@
             android:title="@string/pref_object_paging_min_size" />
 
         <ListPreference
-            android:defaultValue="@string/pref_composite_map_resolution_default"
-            android:dialogTitle="@string/pref_composite_map_resolution"
-            android:entries="@array/pref_composite_map_resolution_entries"
-            android:entryValues="@array/pref_composite_map_resolution_values"
-            android:key="pref_composite_map_resolution"
+            android:defaultValue="@string/pref_object_paging_merge_factor_default"
+            android:dialogTitle="@string/pref_object_paging_merge_factor"
+            android:entries="@array/pref_object_paging_merge_factor_entries"
+            android:entryValues="@array/pref_object_paging_merge_factor_values"
+            android:key="pref_object_paging_merge_factor"
             android:summary="%s"
-            android:title="@string/pref_composite_map_resolution" />
+            android:title="@string/pref_object_paging_merge_factor" />
 
     </PreferenceCategory>
 

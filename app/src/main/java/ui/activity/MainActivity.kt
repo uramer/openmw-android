@@ -469,6 +469,8 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "max lights", prefs.getString("pref_max_lights", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "minimum interior brightness", prefs.getString("pref_minimum_interior_brightness", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map resolution", prefs.getString("pref_composite_map_resolution", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload distance", prefs.getString("pref_preload_distance", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging merge factor", prefs.getString("pref_object_paging_merge_factor", "true")!!)
 
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vsync", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_vsync", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preloading", false)) "true" else "false"))
@@ -526,6 +528,11 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "autosave", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_autosave", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "timeplayed", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_timeplayed", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "enabled", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_groundcover_enable", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload exterior grid", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_exterior_grid", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload fast travel", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_fast_travel", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload doors", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_doors", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload instances", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_instances", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_object_paging", false)) "true" else "false"))
                 }
 
 
