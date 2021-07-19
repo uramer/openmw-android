@@ -533,6 +533,7 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload doors", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_doors", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload instances", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_preload_instances", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_object_paging", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "always run", (if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pref_always_run", false)) "true" else "false"))
                 }
 
 
