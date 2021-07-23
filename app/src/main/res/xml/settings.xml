@@ -512,8 +512,8 @@
 
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="Отношенние торговца к вам сохраняется, после сделки и закрытия диалогового окна с ним. В противном случае, отношение у торговца к вам будет прежним при последующей сделке"
-            android:summary="Описание"
+            android:key="pref_barter_disposition_change_is_permanent"
+            android:summary="Отношенние торговца к вам сохраняется, после сделки и закрытия диалогового окна с ним. В противном случае, отношение у торговца к вам будет прежним при последующей сделке"
             android:title="@string/pref_barter_disposition_change_is_permanent" />
 
         <CheckBoxPreference
