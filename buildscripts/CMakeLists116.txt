@@ -37,8 +37,8 @@ set(MYGUI_VERSION 3.4.0)
 set(MYGUI_HASH SHA256=d1d5f294670ae71f7200ed4b30859018281d8cfd45d6a38d18b97a4aba604c42)
 
 # https://github.com/ptitSeb/gl4es/releases
-set(GL4ES_VERSION ef6cbd63a4e23ba3aa0c6bb64a355f65930ca796)
-set(GL4ES_HASH SHA256=196a9f3709b67a9f8c102f424e9673792f8dd8b97a8e6fbc9245680ad4003868)
+set(GL4ES_VERSION 3706348c00a3816240b2c1a712ee40408e7b1266)
+set(GL4ES_HASH SHA256=d86abdc1b5da96dbbda0494ecebfec5c897c42f0f1bb4239b10de1540cf148e8)
 
 # https://github.com/openscenegraph/OpenSceneGraph/releases
 set(OSG_VERSION b02abe200c4847e73b887b064a89ea1758a5b733)
@@ -49,8 +49,8 @@ set(LZ4_VERSION 1.9.3)
 set(LZ4_HASH SHA256=030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION a21da63464e035cc32e060a57fdfb3c950c97c5d)
-set(OPENMW_HASH SHA256=970b76caf7256fd3113de186e44242ea5904868afe8144f1d990acbaaeeb6d9a)
+set(OPENMW_VERSION ffa91b07ddd1db44fb8197fb066ac3c59a501aeb)
+set(OPENMW_HASH SHA256=83950fd6f15ce92d8e48aa887ab6580ffec413d6ac322c5ab9aa4e6d6208bd37)
 
 # End of configurable options
 
@@ -461,6 +461,7 @@ set(OPENMW_PATCH
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/fix-build.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0015-disable-logs-mygui.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0016-minimal-logs-openmw.patch &&
+	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0017-shadows.patch &&
 	cp ${CMAKE_SOURCE_DIR}/patches/openmw/android_main.cpp <SOURCE_DIR>/apps/openmw/android_main.cpp
 )
 

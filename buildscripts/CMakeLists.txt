@@ -49,8 +49,8 @@ set(LZ4_VERSION 1.9.3)
 set(LZ4_HASH SHA256=030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION db39b4e7d4e4b96d1fba56528aa08011dfd44d5d)
-set(OPENMW_HASH SHA256=30628c1948d0f13f266c3b9bf7ffff9da48a3eee13624a8acf5bcbbd66e1f7c6)
+set(OPENMW_VERSION ffa91b07ddd1db44fb8197fb066ac3c59a501aeb)
+set(OPENMW_HASH SHA256=83950fd6f15ce92d8e48aa887ab6580ffec413d6ac322c5ab9aa4e6d6208bd37)
 
 # End of configurable options
 
