@@ -92,6 +92,7 @@ class GameActivity : SDLActivity() {
                 Os.setenv("OSG_VERTEX_BUFFER_HINT", "VBO", true)
                 Os.setenv("LIBGL_FB", "1", true)
                 Os.setenv("LIBGL_USEVBO", "1", true)
+                Os.setenv("LIBGL_NOHIGHP", "1", true)
             } catch (e: ErrnoException) {
                 Log.e("OpenMW", "Failed setting environment variables.")
                 e.printStackTrace()
