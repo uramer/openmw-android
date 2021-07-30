@@ -1,0 +1,25 @@
+From dc3bf235bdc305059647c81b9a3ab83f6c4655bd Mon Sep 17 00:00:00 2001
+From: Dmitry <docent27@ukr.net>
+Date: Fri, 30 Jul 2021 18:24:29 +0300
+Subject: [PATCH] bigfont
+
+---
+ components/resource/stats.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/components/resource/stats.cpp b/components/resource/stats.cpp
+index 4d07889..ed0a339 100644
+--- a/components/resource/stats.cpp
++++ b/components/resource/stats.cpp
+@@ -108,7 +108,7 @@ Profiler::Profiler(bool offlineCollect):
+     else
+         _font = "";
+ 
+-    _characterSize = 18;
++    _characterSize = 28;
+ 
+     setKeyEventTogglesOnScreenStats(osgGA::GUIEventAdapter::KEY_F3);
+     setupStatCollection();
+--
+libgit2 0.28.4
+
