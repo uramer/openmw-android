@@ -462,13 +462,10 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "min chunk size", prefs.getString("pref_min_chunk_size", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "stomp mode", prefs.getString("pref_stomp_mode", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "stomp intensity", prefs.getString("pref_stomp_intensity", "true")!!)
-                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vertex lod mod", prefs.getString("pref_vertex_composite_lod", "true")!!)
-                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map level", prefs.getString("pref_vertex_composite_lod", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging min size", prefs.getString("pref_object_paging_min_size", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "lighting method", prefs.getString("pref_lighting_method", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "max lights", prefs.getString("pref_max_lights", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "minimum interior brightness", prefs.getString("pref_minimum_interior_brightness", "true")!!)
-                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map resolution", prefs.getString("pref_composite_map_resolution", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload distance", prefs.getString("pref_preload_distance", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging merge factor", prefs.getString("pref_object_paging_merge_factor", "true")!!)
 

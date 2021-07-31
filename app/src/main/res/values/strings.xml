@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OMW</string>
+    <string name="app_name">Tes III Morrowind</string>
 
     <string-array name="pref_encoding_entries">
         <item>Европейский</item>
@@ -471,18 +471,6 @@
         <item>1</item>
         <item>0</item>
     </string-array>
-    <string name="pref_vertex_composite_lod">Детализация ландшафта дополнительно</string>
-    <string name="pref_vertex_composite_lod_default">-3</string>
-    <string-array name="pref_vertex_composite_lod_entries">
-	<item>Высокая</item>
-	<item>Средняя</item>
-	<item>Низкая</item>
-    </string-array>
-    <string-array name="pref_vertex_composite_lod_values">
-        <item>0</item>
-        <item>-1</item>
-        <item>-3</item>
-    </string-array>
     <string name="pref_object_paging_min_size">Детализация подкачки обьектов</string>
     <string name="pref_object_paging_min_size_default">0.03</string>
     <string-array name="pref_object_paging_min_size_entries">
@@ -534,18 +522,6 @@
 	<item>0.2</item>
 	<item>0.08</item>
 	<item>0.0</item>
-    </string-array>
-    <string name="pref_composite_map_resolution">Детализация текстур ландшафта</string>
-    <string name="pref_composite_map_resolution_default">256</string>
-    <string-array name="pref_composite_map_resolution_entries">
-	<item>Высокое качество</item>
-	<item>Среднее качество</item>
-	<item>Низкое качество</item>
-    </string-array>
-    <string-array name="pref_composite_map_resolution_values">
-	<item>512</item>
-	<item>256</item>
-	<item>128</item>
     </string-array>
     <string name="pref_preload_distance">Дистанция предзагрузки</string>
     <string name="pref_preload_distance_default">1000</string>

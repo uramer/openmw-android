@@ -19,13 +19,11 @@
             android:summary="Выбрать папку, содержащую Game Data"
             android:title="@string/game_files" />
 
-
         <Preference
             android:key="pref_mods"
             android:summary="Выбрать моды и подключить игровые архивы"
             android:title="@string/mods" />
     </PreferenceCategory>
-
 
     <PreferenceCategory android:title="@string/pref_ui">
         <Preference
@@ -370,24 +368,6 @@
             android:key="pref_lod_factor"
             android:summary="%s"
             android:title="@string/pref_lod_factor" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_vertex_composite_lod_default"
-            android:dialogTitle="@string/pref_vertex_composite_lod"
-            android:entries="@array/pref_vertex_composite_lod_entries"
-            android:entryValues="@array/pref_vertex_composite_lod_values"
-            android:key="pref_vertex_composite_lod"
-            android:summary="%s"
-            android:title="@string/pref_vertex_composite_lod" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_composite_map_resolution_default"
-            android:dialogTitle="@string/pref_composite_map_resolution"
-            android:entries="@array/pref_composite_map_resolution_entries"
-            android:entryValues="@array/pref_composite_map_resolution_values"
-            android:key="pref_composite_map_resolution"
-            android:summary="%s"
-            android:title="@string/pref_composite_map_resolution" />
 
         <CheckBoxPreference
             android:defaultValue="true"
