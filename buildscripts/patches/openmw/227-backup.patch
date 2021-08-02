@@ -340,13 +340,13 @@ index 7f184c70eb..30bc5f388e 100644
          loadRenderingNode(entry, vd, mVertexLodMod, cellWorldSize, mActiveGrid, mChunkManagers, false);
 +    }
 +
-+    if (cv && cv->getCullingMode() & osg::CullStack::SHADOW_OCCLUSION_CULLING && mCollectOccludersVisitor)
++    if (cv && cv->getCullingMode() & osg::CullStack::SHADOW_OCCLUSION_CULLING)
 +    {
 +        collectOccluders(mCollectOccludersVisitor, cv, vd, mDebugOccluders, mOcclusionCullingZFactor, mOcclusionCullingZBias);
 +        cv->pushCullingSet();
 +    }
 +
-+    if (cv && mCollectOccludersVisitor)
++    if (cv)
 +        updateWaterCullingView(mHeightCullCallback, vd, cv, mStorage->getCellWorldSize(), !isGridEmpty(), mDebugOccluders);
 +
 +    for (unsigned int i=0; i<vd->getNumEntries(); ++i)
@@ -357,7 +357,7 @@ index 7f184c70eb..30bc5f388e 100644
  
 -    if (mHeightCullCallback && isCullVisitor)
 -        updateWaterCullingView(mHeightCullCallback, vd, static_cast<osgUtil::CullVisitor*>(&nv), mStorage->getCellWorldSize(), !isGridEmpty());
-+    if (cv && cv->getCullingMode() & osg::CullStack::SHADOW_OCCLUSION_CULLING && mCollectOccludersVisitor)
++    if (cv && cv->getCullingMode() & osg::CullStack::SHADOW_OCCLUSION_CULLING)
 +        cv->popCullingSet();
  
      vd->markUnchanged();
