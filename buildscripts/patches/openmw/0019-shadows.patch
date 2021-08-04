@@ -1,0 +1,25 @@
+From d1aba7b69b8533ba20f1338a3e58ca385d9cb8e8 Mon Sep 17 00:00:00 2001
+From: Dmitry <docent27@ukr.net>
+Date: Tue, 3 Aug 2021 23:18:27 +0300
+Subject: [PATCH] 1
+
+---
+ components/sceneutil/mwshadowtechnique.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/components/sceneutil/mwshadowtechnique.cpp b/components/sceneutil/mwshadowtechnique.cpp
+index 745d93d..b14a705 100644
+--- a/components/sceneutil/mwshadowtechnique.cpp
++++ b/components/sceneutil/mwshadowtechnique.cpp
+@@ -549,7 +549,7 @@ MWShadowTechnique::ShadowData::ShadowData(MWShadowTechnique::ViewDependentData* 
+     else
+     {
+         _texture->setInternalFormat(GL_DEPTH_COMPONENT);
+-        _texture->setShadowComparison(true);
++        _texture->setShadowComparison(false);
+         _texture->setShadowTextureMode(osg::Texture2D::LUMINANCE);
+     }
+ 
+--
+libgit2 0.28.4
+
