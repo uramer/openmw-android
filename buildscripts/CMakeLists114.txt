@@ -49,8 +49,8 @@ set(LZ4_VERSION 1.9.3)
 set(LZ4_HASH SHA256=030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION ffa91b07ddd1db44fb8197fb066ac3c59a501aeb)
-set(OPENMW_HASH SHA256=83950fd6f15ce92d8e48aa887ab6580ffec413d6ac322c5ab9aa4e6d6208bd37)
+set(OPENMW_VERSION 93f495ecb55226434f75897fd7fd00b022759975)
+set(OPENMW_HASH SHA256=563e3ad3c1080269869bf83111fecfcab7a134f9fbec423302edd9d0c75185a2)
 
 # End of configurable options
 
@@ -467,6 +467,7 @@ set(OPENMW_PATCH
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0016-minimal-logs-openmw.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0017-bigfont.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0018-highp.patch &&
+	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/227.patch &&
 	cp ${CMAKE_SOURCE_DIR}/patches/openmw/android_main.cpp <SOURCE_DIR>/apps/openmw/android_main.cpp
 )
 
