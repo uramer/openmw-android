@@ -5,7 +5,13 @@
 ##  Gradle start up script for UN*X
 ##
 ##############################################################################
-cp settings.cfg app/src/main/assets/libopenmw/openmw/settings.cfg
+cp patch/settings.cfg app/src/main/assets/libopenmw/openmw/settings.cfg
+cp patch/water_fragment.glsl app/src/main/assets/libopenmw/resources/shaders/water_fragment.glsl
+cp patch/water_vertex.glsl app/src/main/assets/libopenmw/resources/shaders/water_vertex.glsl
+cp patch/Ayembedt.ttf app/src/main/assets/libopenmw/resources/mygui/Ayembedt.ttf
+cp patch/DejaVuLGCSansMono.ttf app/src/main/assets/libopenmw/resources/mygui/DejaVuLGCSansMono.ttf
+cp patch/openmw_font.xml app/src/main/assets/libopenmw/resources/mygui/openmw_font.xml
+cp patch/Pelagiad.ttf app/src/main/assets/libopenmw/resources/mygui/Pelagiad.ttf
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 
