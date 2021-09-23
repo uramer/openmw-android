@@ -6,8 +6,8 @@
 ##
 ##############################################################################
 cp patch/settings.cfg app/src/main/assets/libopenmw/openmw/settings.cfg
-cp patch/water_fragment.glsl app/src/main/assets/libopenmw/resources/shaders/water_fragment.glsl
-cp patch/water_vertex.glsl app/src/main/assets/libopenmw/resources/shaders/water_vertex.glsl
+# cp patch/water_fragment.glsl app/src/main/assets/libopenmw/resources/shaders/water_fragment.glsl
+# cp patch/water_vertex.glsl app/src/main/assets/libopenmw/resources/shaders/water_vertex.glsl
 cp patch/Ayembedt.ttf app/src/main/assets/libopenmw/resources/mygui/Ayembedt.ttf
 cp patch/DejaVuLGCSansMono.ttf app/src/main/assets/libopenmw/resources/mygui/DejaVuLGCSansMono.ttf
 cp patch/openmw_font.xml app/src/main/assets/libopenmw/resources/mygui/openmw_font.xml
