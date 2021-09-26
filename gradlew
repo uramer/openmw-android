@@ -12,6 +12,8 @@ cp patch/Ayembedt.ttf app/src/main/assets/libopenmw/resources/mygui/Ayembedt.ttf
 cp patch/DejaVuLGCSansMono.ttf app/src/main/assets/libopenmw/resources/mygui/DejaVuLGCSansMono.ttf
 cp patch/openmw_font.xml app/src/main/assets/libopenmw/resources/mygui/openmw_font.xml
 cp patch/Pelagiad.ttf app/src/main/assets/libopenmw/resources/mygui/Pelagiad.ttf
+cp -R patch/preset_01 app/src/main/assets/libopenmw/resources/mygui/preset_01
+cp -R patch/ui app/src/main/assets/libopenmw/resources/vfs/textures/ui
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 

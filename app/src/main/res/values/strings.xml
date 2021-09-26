@@ -562,4 +562,14 @@
 	<item>WARNING</item>
 	<item>ERROR</item>
     </string-array>
+    <string name="pref_mygui">Стиль интерфейса игры</string>
+    <string name="pref_mygui_default">none</string>
+    <string-array name="pref_mygui_entries">
+	<item>Модерн</item>
+	<item>Классический Morrowind</item>
+    </string-array>
+    <string-array name="pref_mygui_values">
+	<item>preset_01</item>
+	<item>none</item>
+    </string-array>
 </resources>

@@ -106,6 +106,9 @@ class GameActivity : SDLActivity() {
         if (omwDebugLevel == "WARNING") Os.setenv("OPENMW_DEBUG_LEVEL", "WARNING", true)
         if (omwDebugLevel == "ERROR") Os.setenv("OPENMW_DEBUG_LEVEL", "ERROR", true)
 
+        val omwMyGui = prefs!!.getString("pref_mygui", "")
+        if (omwMyGui == "preset_01") Os.setenv("OPENMW_MYGUI", "preset_01", true)
+
         val envline: String = PreferenceManager.getDefaultSharedPreferences(this).getString("envLine", "").toString()
         if (envline.length > 0) {
             val envs: List<String> = envline.split(" ")

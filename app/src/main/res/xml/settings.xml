@@ -31,6 +31,15 @@
             android:summary="Расположение экранных элементов интерфейса"
             android:title="@string/action_show_screen_controls" />
 
+        <ListPreference
+            android:defaultValue="@string/pref_mygui_default"
+            android:dialogTitle="@string/pref_mygui"
+            android:entries="@array/pref_mygui_entries"
+            android:entryValues="@array/pref_mygui_values"
+            android:key="pref_mygui"
+            android:summary="%s"
+            android:title="@string/pref_mygui" />
+
         <EditTextPreference
             android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
