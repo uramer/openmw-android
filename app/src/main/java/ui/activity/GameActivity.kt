@@ -99,6 +99,13 @@ class GameActivity : SDLActivity() {
 
         }
 
+        val omwDebugLevel = prefs!!.getString("pref_debug_level", "")
+        if (omwDebugLevel == "DEBUG") Os.setenv("OPENMW_DEBUG_LEVEL", "DEBUG", true)
+        if (omwDebugLevel == "VERBOSE") Os.setenv("OPENMW_DEBUG_LEVEL", "VERBOSE", true)
+        if (omwDebugLevel == "INFO") Os.setenv("OPENMW_DEBUG_LEVEL", "INFO", true)
+        if (omwDebugLevel == "WARNING") Os.setenv("OPENMW_DEBUG_LEVEL", "WARNING", true)
+        if (omwDebugLevel == "ERROR") Os.setenv("OPENMW_DEBUG_LEVEL", "ERROR", true)
+
         val envline: String = PreferenceManager.getDefaultSharedPreferences(this).getString("envLine", "").toString()
         if (envline.length > 0) {
             val envs: List<String> = envline.split(" ")

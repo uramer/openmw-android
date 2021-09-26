@@ -226,6 +226,7 @@
             android:entryValues="@array/pref_graphicsLibrary_values"
             android:key="pref_graphicsLibrary_v2"
             android:summary="%s"
+            android:selectable="false"
             android:title="@string/pref_graphicsLibrary" />
 
         <ListPreference
@@ -733,6 +734,15 @@
         <EditTextPreference
             android:key="envLine"
             android:title="@string/pref_envLine" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_debug_level_default"
+            android:dialogTitle="@string/pref_debug_level"
+            android:entries="@array/pref_debug_level_entries"
+            android:entryValues="@array/pref_debug_level_values"
+            android:key="pref_debug_level"
+            android:summary="%s"
+            android:title="@string/pref_debug_level" />
 
     </PreferenceCategory>
 

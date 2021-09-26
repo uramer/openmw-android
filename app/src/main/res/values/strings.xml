@@ -125,7 +125,6 @@
     <string name="pref_object_paging">Подкачка обьектов</string>
     <string name="pref_always_run">Всегда бег</string>
 
-
     <string-array name="pref_graphicsLibrary_entries">
         <item>GLESv1</item>
         <item>GLESv2</item>
@@ -546,5 +545,21 @@
 	<item>15000</item>
 	<item>3000</item>
 	<item>250</item>
+    </string-array>
+    <string name="pref_debug_level">Уровень ведения журнала LOG файла</string>
+    <string name="pref_debug_level_default">ERROR</string>
+    <string-array name="pref_debug_level_entries">
+	<item>DEBUG</item>
+	<item>VERBOSE</item>
+	<item>INFO</item>
+	<item>WARNING</item>
+	<item>ERROR</item>
+    </string-array>
+    <string-array name="pref_debug_level_values">
+	<item>DEBUG</item>
+	<item>VERBOSE</item>
+	<item>INFO</item>
+	<item>WARNING</item>
+	<item>ERROR</item>
     </string-array>
 </resources>
