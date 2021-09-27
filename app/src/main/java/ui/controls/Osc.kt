@@ -433,6 +433,7 @@ class Osc {
         val showQp = prefs.getBoolean("pref_show_qp", false)
         val showFn = prefs.getBoolean("pref_show_fn", false)
         val alwaysShowTop = prefs.getBoolean("pref_always_show_top_bar", false)
+        val omwTouch = prefs!!.getString("pref_touch", "")
 
         for (element in elements) {
             if (!showQp && (element == qp || quickButtons.contains(element)))

@@ -40,6 +40,16 @@
             android:summary="%s"
             android:title="@string/pref_mygui" />
 
+        <ListPreference
+            android:defaultValue="@string/pref_touch_default"
+            android:dialogTitle="@string/pref_touch"
+            android:entries="@array/pref_touch_entries"
+            android:entryValues="@array/pref_touch_values"
+            android:key="pref_touch"
+            android:selectable="false"
+            android:summary="%s"
+            android:title="@string/pref_touch" />
+
         <EditTextPreference
             android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
@@ -345,6 +355,15 @@
             android:key="pref_shader_water"
             android:summary="Более красивая и реалистичная шейдерная вода. Отключите, если сильные просадки FPS"
             android:title="@string/pref_shader_water" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_water_preset_default"
+            android:dialogTitle="@string/pref_water_preset"
+            android:entries="@array/pref_water_preset_entries"
+            android:entryValues="@array/pref_water_preset_values"
+            android:key="pref_water_preset"
+            android:summary="%s"
+            android:title="@string/pref_water_preset" />
 
         <CheckBoxPreference
             android:defaultValue="false"

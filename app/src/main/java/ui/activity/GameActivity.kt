@@ -109,6 +109,15 @@ class GameActivity : SDLActivity() {
         val omwMyGui = prefs!!.getString("pref_mygui", "")
         if (omwMyGui == "preset_01") Os.setenv("OPENMW_MYGUI", "preset_01", true)
 
+        val omwWaterPreset = prefs!!.getString("pref_water_preset", "")
+        if (omwWaterPreset == "1") {
+                Os.setenv("OPENMW_WATER_VERTEX", "water_vertex.glsl", true)
+                Os.setenv("OPENMW_WATER_FRAGMENT", "water_fragment.glsl", true)
+            } else {
+                Os.setenv("OPENMW_WATER_VERTEX", "water_vertex2.glsl", true)
+                Os.setenv("OPENMW_WATER_FRAGMENT", "water_fragment2.glsl", true)
+            }
+
         val envline: String = PreferenceManager.getDefaultSharedPreferences(this).getString("envLine", "").toString()
         if (envline.length > 0) {
             val envs: List<String> = envline.split(" ")

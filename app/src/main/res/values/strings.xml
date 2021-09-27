@@ -562,14 +562,34 @@
 	<item>WARNING</item>
 	<item>ERROR</item>
     </string-array>
-    <string name="pref_mygui">Стиль интерфейса игры</string>
+    <string name="pref_mygui">Стиль UI в игре</string>
     <string name="pref_mygui_default">none</string>
     <string-array name="pref_mygui_entries">
-	<item>Модерн</item>
-	<item>Классический Morrowind</item>
+	<item>OpenHUD</item>
+	<item>Morrowind</item>
     </string-array>
     <string-array name="pref_mygui_values">
 	<item>preset_01</item>
 	<item>none</item>
+    </string-array>
+    <string name="pref_touch">Стиль кнопок управления (в разработке)</string>
+    <string name="pref_touch_default">1</string>
+    <string-array name="pref_touch_entries">
+	<item>Модерн</item>
+	<item>Классический OMW</item>
+    </string-array>
+    <string-array name="pref_touch_values">
+	<item>2</item>
+	<item>1</item>
+    </string-array>
+    <string name="pref_water_preset">Стиль шейдерной воды</string>
+    <string name="pref_water_preset_default">1</string>
+    <string-array name="pref_water_preset_entries">
+	<item>Vtastek</item>
+	<item>Классический OMW</item>
+    </string-array>
+    <string-array name="pref_water_preset_values">
+	<item>2</item>
+	<item>1</item>
     </string-array>
 </resources>
