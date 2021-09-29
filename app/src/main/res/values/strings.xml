@@ -306,14 +306,20 @@
         <item>1</item>
         <item>0</item>
     </string-array>
-    <string name="pref_projectiles_enchant_multiplier">Способ зачарования стрел и болтов</string>
+    <string name="pref_projectiles_enchant_multiplier">Множитель зачарования снарядов</string>
     <string name="pref_projectiles_enchant_multiplier_default">0</string>
     <string-array name="pref_projectiles_enchant_multiplier_entries">
-	<item>Сразу несколько</item>
-	<item>По одной</item>
+	<item>1</item>
+	<item>0.75</item>
+	<item>0.5</item>
+	<item>0.25 - как в MCP</item>
+	<item>0 - по одному</item>
     </string-array>
     <string-array name="pref_projectiles_enchant_multiplier_values">
         <item>1</item>
+        <item>0.75</item>
+        <item>0.5</item>
+        <item>0.25</item>
         <item>0</item>
     </string-array>
     <string name="pref_rtt_size">Качество отражения воды</string>
