@@ -313,7 +313,7 @@
 	<item>По одной</item>
     </string-array>
     <string-array name="pref_projectiles_enchant_multiplier_values">
-        <item>0.25</item>
+        <item>1</item>
         <item>0</item>
     </string-array>
     <string name="pref_rtt_size">Качество отражения воды</string>
