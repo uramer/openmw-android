@@ -1,0 +1,25 @@
+From ee54edd192bea2fc6a1c39907bc0caf1f2a3401b Mon Sep 17 00:00:00 2001
+From: Docent27 <docent27@ukr.net>
+Date: Sat, 9 Oct 2021 11:44:50 +0300
+Subject: [PATCH] VFS SELECTOR
+
+---
+ apps/openmw/engine.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/apps/openmw/engine.cpp b/apps/openmw/engine.cpp
+index a06faa4..13a152f 100644
+--- a/apps/openmw/engine.cpp
++++ b/apps/openmw/engine.cpp
+@@ -438,7 +438,7 @@ void OMW::Engine::enableFSStrict(bool fsStrict)
+ void OMW::Engine::setDataDirs (const Files::PathContainer& dataDirs)
+ {
+     mDataDirs = dataDirs;
+-    mDataDirs.insert(mDataDirs.begin(), (mResDir / "vfs"));
++    mDataDirs.insert(mDataDirs.begin(), (mResDir / getenv("OPENMW_VFS_SELECTOR")));
+     mFileCollections = Files::Collections (mDataDirs, !mFSStrict);
+ }
+ 
+--
+libgit2 0.28.4
+

@@ -598,4 +598,14 @@
 	<item>2</item>
 	<item>1</item>
     </string-array>
+    <string name="pref_vfs_selector">Стиль игрового интерфейса</string>
+    <string name="pref_vfs_selector_default">1</string>
+    <string-array name="pref_vfs_selector_entries">
+	<item>Тёмный</item>
+	<item>Классический OMW</item>
+    </string-array>
+    <string-array name="pref_vfs_selector_values">
+	<item>2</item>
+	<item>1</item>
+    </string-array>
 </resources>

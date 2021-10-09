@@ -118,6 +118,10 @@ class GameActivity : SDLActivity() {
                 Os.setenv("OPENMW_WATER_FRAGMENT", "water_fragment2.glsl", true)
             }
 
+        val omwVfsSl = prefs!!.getString("pref_vfs_selector", "")
+        if (omwVfsSl == "1") Os.setenv("OPENMW_VFS_SELECTOR", "vfs", true)
+        if (omwVfsSl == "2") Os.setenv("OPENMW_VFS_SELECTOR", "vfs2", true)
+
         val envline: String = PreferenceManager.getDefaultSharedPreferences(this).getString("envLine", "").toString()
         if (envline.length > 0) {
             val envs: List<String> = envline.split(" ")

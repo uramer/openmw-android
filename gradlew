@@ -14,6 +14,7 @@ cp patch/openmw_font.xml app/src/main/assets/libopenmw/resources/mygui/openmw_fo
 cp patch/Pelagiad.ttf app/src/main/assets/libopenmw/resources/mygui/Pelagiad.ttf
 cp -R patch/preset_01 app/src/main/assets/libopenmw/resources/mygui/preset_01
 cp -R patch/ui app/src/main/assets/libopenmw/resources/vfs/textures/ui
+cp -R patch/vfs2 app/src/main/assets/libopenmw/resources/vfs2
 cp patch/target.dds app/src/main/assets/libopenmw/resources/vfs/textures/target.dds
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""

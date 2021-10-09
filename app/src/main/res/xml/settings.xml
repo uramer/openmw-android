@@ -41,6 +41,15 @@
             android:title="@string/pref_mygui" />
 
         <ListPreference
+            android:defaultValue="@string/pref_vfs_selector_default"
+            android:dialogTitle="@string/pref_vfs_selector"
+            android:entries="@array/pref_vfs_selector_entries"
+            android:entryValues="@array/pref_vfs_selector_values"
+            android:key="pref_vfs_selector"
+            android:summary="%s"
+            android:title="@string/pref_vfs_selector" />
+
+        <ListPreference
             android:defaultValue="@string/pref_touch_default"
             android:dialogTitle="@string/pref_touch"
             android:entries="@array/pref_touch_entries"
