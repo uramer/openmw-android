@@ -49,16 +49,6 @@
             android:summary="%s"
             android:title="@string/pref_vfs_selector" />
 
-        <ListPreference
-            android:defaultValue="@string/pref_touch_default"
-            android:dialogTitle="@string/pref_touch"
-            android:entries="@array/pref_touch_entries"
-            android:entryValues="@array/pref_touch_values"
-            android:key="pref_touch"
-            android:selectable="false"
-            android:summary="%s"
-            android:title="@string/pref_touch" />
-
         <EditTextPreference
             android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
@@ -753,6 +743,15 @@
             android:key="pref_stomp_intensity"
             android:summary="%s"
             android:title="@string/pref_stomp_intensity" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_rendering_distance_default"
+            android:dialogTitle="@string/pref_rendering_distance"
+            android:entries="@array/pref_rendering_distance_entries"
+            android:entryValues="@array/pref_rendering_distance_values"
+            android:key="pref_rendering_distance"
+            android:summary="%s"
+            android:title="@string/pref_rendering_distance" />
 
     </PreferenceCategory>
 

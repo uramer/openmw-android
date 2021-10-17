@@ -468,6 +468,7 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "minimum interior brightness", prefs.getString("pref_minimum_interior_brightness", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload distance", prefs.getString("pref_preload_distance", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging merge factor", prefs.getString("pref_object_paging_merge_factor", "true")!!)
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "rendering distance", prefs.getString("pref_rendering_distance", "true")!!)
 
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vsync", (if (prefs.getBoolean("pref_vsync", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload enabled", (if (prefs.getBoolean("pref_preloading", false)) "true" else "false"))
