@@ -187,7 +187,7 @@
 
     <string name="no_data_files_title">Data files not found</string>
     <string name="no_data_files_message">You must copy Morrowind game files to your device and select the path under \"Game files\" before the game can be played</string>
-    <string name="category_performance">Производительность</string>
+    <string name="category_performance">Performance</string>
 
     <string name="no_content_files_title">No content files!</string>
     <string name="no_content_files_message">There are no content files enabled. Before the game can run, you must activate at least one plugin file from the \"Mods…\" menu</string>
