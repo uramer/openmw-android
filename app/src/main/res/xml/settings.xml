@@ -16,19 +16,19 @@
 
         <Preference
             android:key="game_files"
-            android:summary="Выбрать папку, содержащую Game Data"
+            android:summary="Select Game Data folder"
             android:title="@string/game_files" />
 
         <Preference
             android:key="pref_mods"
-            android:summary="Выбрать моды и подключить игровые архивы"
+            android:summary="Select mods and BSA archives"
             android:title="@string/mods" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_ui">
         <Preference
             android:key="pref_controls"
-            android:summary="Расположение экранных элементов интерфейса"
+            android:summary="On-screen interface elements"
             android:title="@string/action_show_screen_controls" />
 
         <ListPreference
@@ -52,7 +52,7 @@
         <EditTextPreference
             android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
-            android:summary="Настройка гаммы. Чем выше значение, тем ярче изображение в игре"
+            android:summary="Adjust the gamma. The higher the value, the brighter the image in the game"
             android:hint="1.0"
             android:inputType="numberDecimal"
             android:key="pref_gamma"
@@ -61,7 +61,7 @@
 
         <EditTextPreference
             android:dialogTitle="@string/pref_uiScaling"
-            android:summary="Масштабирует игровой интерфейс. Чем выше значение, тем крупнее кнопки, текст, менюшки и прочее"
+            android:summary="Scales the game interface. The higher the value, the larger the buttons, text, menus, etc"
             android:hint="1.5"
             android:inputType="numberDecimal"
             android:key="pref_uiScaling"
@@ -80,62 +80,62 @@
         <EditTextPreference
             android:dialogTitle="@string/pref_customResolution"
             android:hint="640x480"
-            android:summary="По умолчанию - разрешение экрана вашего гаджета"
+            android:summary="By default - the screen resolution of your gadget"
             android:key="pref_customResolution"
             android:title="@string/pref_customResolution" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_hide_controls"
-            android:summary="Отключите, если играете на ТВ боксе или с геймпадом"
+            android:summary="Disable if playing on TV box or with gamepad"
             android:title="@string/pref_hide_controls" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_always_show_top_bar"
-            android:summary="Все кнопки экранного управления будут всвгда на виду. Если выключить, они будут свернуты, во время игры их можно будет развернуть"
+            android:summary="All on-screen control buttons are always visible. If turned off, they will be minimized, during the game they can be expanded"
             android:title="@string/pref_always_show_top_bar" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_qp"
-            android:summary="Включение кнопок от 0 до 9. Выключите, если не пользуетесь быстрыми клавишами в игре"
+            android:summary="Enable buttons from 0 to 9. Disable if you are not using keyboard shortcuts in the game"
             android:title="@string/pref_show_qp" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_fn"
-            android:summary="Включение функциональных клавиш. F1 - назначение быстрых клавишь, F3 - показать FPS и профилировщик, F4 - статистика по обьектам, F11 - убрать игровой интерфейс"
+            android:summary="Enable function keys. F1 - assign keyboard shortcuts, F3 - show FPS and profiler, F4 - object statistics, F11 - remove game interface"
             android:title="@string/pref_show_fn" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_gyroscope"
-            android:summary="Возможность управлять камерой гироскопом (если он есть в вашем девайсе)"
+            android:summary="The ability to control the camera with a gyroscope (if your device has one)"
             android:title="@string/pref_gyroscope" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_screen_keeper"
-            android:summary="Не выключать экран и не уходить в сон при долгом отсутствии взаимодействия с девайсом"
+            android:summary="Do not turn off the screen and do not go to sleep if there is a long absence of interaction with the device"
             android:title="@string/pref_screen_keeper" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_stretch_menu_background"
-            android:summary="Фоновая картинка в главном меню и на экранах загрузки будет растянута во весь экран, вне зависимости от пропорций экрана"
+            android:summary="The background image in the main menu and on loading screens will be stretched to full screen, regardless of the screen aspect ratio"
             android:title="@string/pref_stretch_menu_background" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_color_topic_enable"
-            android:summary="Пункты диалогов с NPC будут иметь разные цвета. Например серым цветом будут позначены диалоги, которые уже состоялись."
+            android:summary="Apply the defined color to dialogue topic"
             android:title="@string/pref_color_topic_enable" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_subtitles"
-            android:summary="Включение субтитров в игре. Очень помогает при игре без звука"
+            android:summary="Enable subtitles on game"
             android:title="@string/pref_subtitles" />
 
     </PreferenceCategory>
@@ -172,36 +172,36 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_vsync"
-            android:summary="Ограничивает FPS до частоты кадров вашего девайса. Отключите, если хотите видеть 100500 fps уперевшись в стену внутри здания. Включите, если не хотите, чтобы ваш девайс лишной раз не грелся как утюг"
+            android:summary="Limits FPS to the frame rate of your device. It is recommended to turn it on so that the smartphone does not overheat"
             android:title="@string/pref_vsync" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_preloading"
-            android:summary="Загружает в ОЗУ данные о соседних ячейках, уменьшает количество экранов подзагрузки. ВНИМАНИЕ! Сильно увеличивает потребление ОЗУ. Выключите, если есть проблемы с вылетами"
+            android:summary="Preload cells in a background thread. All settings starting with preload have no effect unless this is enabled"
             android:title="@string/pref_preloading" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_preload_exterior_grid"
-            android:summary="Загружает в ОЗУ соседнюю ячейку открытого мира. Не работает, если выключена (предзагрузка)"
+            android:summary="Preload adjacent cells when moving close to an exterior cell border"
             android:title="@string/pref_preload_exterior_grid" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_preload_fast_travel"
-            android:summary="Загружает в ОЗУ ячейки локаций, доступных для поездки на силт страйдере или телепортатором из гильдии магов. Не работает, если выключена (предзагрузка)"
+            android:summary="Preload possible fast travel destinations"
             android:title="@string/pref_preload_fast_travel" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_preload_doors"
-            android:summary="Загружает в ОЗУ все данные, которые находятся за дверьми (интерьеры домов, пещеры, гробници и т.д.). Не работает, если выключена (предзагрузка)"
+            android:summary="Preload the locations that doors lead to"
             android:title="@string/pref_preload_doors" />
 
         <CheckBoxPreference
             android:defaultValue="true"
-            android:summary="Какая то дохуя нужная предзагрузка, гугл пепеводчик - гори ты в огне. Не работает, если выключена (предзагрузка)"
+            android:summary="Controls whether or not the nodes/collision shapes are pre-instanced (i.e. cloned) when a cell is preloaded. Enabling this option slightly reduces the time it takes to transition into a preloaded cell, but also results in higher memory usage proportional to the number of cells that are preloaded"
             android:key="pref_preload_instances"
 
             android:title="@string/pref_preload_instances" />
@@ -268,7 +268,7 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_small_feature_culling"
-            android:summary="В игре не будут отображатся очень мелкие обьекты в далеке. Чем выше значения отсекателя - тем выше fps, но тем больше обьектов в далеке будут удалены, может появится эффект, когда вдалеке у npc нет рук и голов"
+            android:summary="Cull objects that occupy less than small feature culling pixel size on the screen"
             android:title="@string/pref_small_feature_culling" />
 
         <ListPreference
@@ -283,37 +283,37 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_distant"
-            android:summary="Сильно возрастает дальность прорисовки, но так же влияет на FPS и на потребление ОЗУ"
+            android:summary="If true, use paging and LOD algorithms to display the entire terrain. If false, only display terrain of the loaded cells"
             android:title="@string/pref_distant" />
 
         <CheckBoxPreference
             android:defaultValue="false"
-            android:summary="Включение шейдеров. Сильно влияет на FPS. Нет смысла включать, если играете без модов в классический Morrowind"
+            android:summary="Force rendering with shaders. By default, only bump-mapped objects will use shaders. Enabling this option may cause slightly different visuals if the clamp lighting option is set to false. Otherwise, there should not be a visual difference"
             android:key="pref_shaders"
             android:title="@string/pref_shaders" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_auto_use_pbr"
-            android:summary="Возможность использовать рельефные текстуры. Нет смысла включать без графических модов"
+            android:summary="If this option is enabled, normal maps are automatically recognized and used if they are named appropriately (see normal map pattern, e.g. for a base texture foo.dds, the normal map texture would have to be named foo_n.dds).If this option is disabled, normal maps are only used if they are explicitly listed within the mesh file (.nif or .osg file). Affects objects"
             android:title="@string/pref_auto_use_pbr" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_apply_lighting_to_environment_maps"
-            android:summary="Применяйте освещение к отражениям на объектах, отображаемых на карте, как в Morrowind Code Patch. Затронутые объекты используют шейдеры"
+            android:summary="Apply lighting to reflections on the environment-mapped objects like in Morrowind Code Patch. Affected objects use shaders"
             android:title="@string/pref_apply_lighting_to_environment_maps" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_pix_light"
-            android:summary="Включить пиксельное освещение. Не работает, если выключены шейдеры. Сильное влияние на FPS"
+            android:summary="Force the use of per pixel lighting. By default, only bump mapped objects use per-pixel lighting. Has no effect if the force shaders option is false. Enabling per-pixel lighting can result in visual differences to the original MW engine. It is not recommended to enable this option when using vanilla Morrowind files, because certain lights in Morrowind rely on vertex lighting to look as intended"
             android:title="@string/pref_pix_light" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_clamp_lighting"
-            android:summary="Особый алгоритм пиксельного освещения. Не работает, если выключены шейдеры"
+            android:summary="Restrict the amount of lighting that an object can receive to a maximum of (1,1,1). Only affects objects that render with shaders (see force shaders option). Always affects terrain. Setting this option to true results in fixed-function compatible lighting, but the lighting may appear dull and there might be color shifts. Setting this option to false results in more realistic lighting"
             android:title="@string/pref_clamp_lighting" />
 
         <ListPreference
@@ -346,13 +346,13 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_radfog"
-            android:summary="Более правильный туман. Использует шейдеры. Оказывает влияние на FPS"
+            android:summary="Determine fog intensity based on the distance from the eye point. This makes fogging independent from the viewing angle. Shaders will be used to render all objects"
             android:title="@string/pref_radfog" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_shader_water"
-            android:summary="Более красивая и реалистичная шейдерная вода. Отключите, если сильные просадки FPS"
+            android:summary="Enable water shader with reflections and optionally refraction"
             android:title="@string/pref_shader_water" />
 
         <ListPreference
@@ -367,7 +367,7 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_refraction"
-            android:summary="Более прозрачная и реалистичная вода. Очень влияет на FPS"
+            android:summary="Enable refraction which affects visibility through water plane"
             android:title="@string/pref_refraction" />
 
         <ListPreference
@@ -400,7 +400,7 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_object_paging"
-            android:summary="Позволяет в далеке видеть множество обьектов. Не работает, если выключен (далёкий ландщафт). Сильное влияние на ОЗУ и FPS. Если игра тормозит, уменьшите качество детализации подкачки обьектов и увеличте коефициент слияния"
+            android:summary="Use object paging for non active cells"
             android:title="@string/pref_object_paging" />
 
         <ListPreference
@@ -437,181 +437,181 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_toggle_sneak"
-            android:summary="Если включено - при нажатии в игре кнопки скрытности, персонаж будет постоянно в присяди, повторное нажатие - отключает скрытность. Если отключено, персонаж скрытный лишь пока вы пальцем удерживаете кнопку скрытности, отпустив которую, он перестает скрываться"
+            android:summary="Key controlling sneak toggles setting instead of being held down"
             android:title="@string/pref_toggle_sneak" />
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_always_run"
-            android:summary="Если включено, персонаж всегда перемещается бегом. Если отключить, ходит обычным шагом, медленно, но не тратя сил"
+            android:summary="Player is running by default"
             android:title="@string/pref_always_run" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_projectile_damage"
-            android:summary="Показать бонус к урону стрел и болтов"
+            android:summary="Show damage bonus of arrow and bolts"
             android:title="@string/pref_show_projectile_damage" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_melee_info"
-            android:summary="Показать дополнительную информацию об оружии: радиус действия и скорость атаки"
+            android:summary="Show additional weapon info: reach and attack speed"
             android:title="@string/pref_show_melee_info" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_enchant_chance"
-            android:summary="Показать вероятность успеха в диалоге зачарования"
+            android:summary="Show success probability in self-enchant dialog"
             android:title="@string/pref_show_enchant_chance" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_best_attack"
-            android:summary="Всегда используйте лучший способ атаки: например, рубить, резать или колоть"
+            android:summary="Always use the best mode of attack: e.g. chop, slash or thrust"
             android:title="@string/pref_best_attack" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_classic_reflected_absorb_spells_behavior"
-            android:summary="Заклинания «Сделать отраженное поглощение» не имеют практического эффекта, как в Морровинде"
+            android:summary="Make reflected Absorb spells have no practical effect, like in Morrowind"
             android:title="@string/pref_classic_reflected_absorb_spells_behavior" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_effect_duration"
-            android:summary="Показывать продолжительность магического эффекта и подсветки в окне заклинаний"
+            android:summary="Show duration of magic effect and lights in the spells window"
             android:title="@string/pref_show_effect_duration" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_prevent_merchant_equipping"
-            android:summary="Запретить торговцам экипировать проданные им предметы"
+            android:summary="Prevent merchants from equipping items that are sold to them"
             android:title="@string/pref_prevent_merchant_equipping" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_enchanted_weapons_are_magical"
-            android:summary="Создавайте зачарованное оружие без магического флага, чтобы обойти обычное сопротивление оружия"
+            android:summary="Make enchanted weaponry without Magical flag bypass normal weapons resistance"
             android:title="@string/pref_enchanted_weapons_are_magical" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_followers_attack_on_sight"
-            android:summary="Заставьте своих союзников начать бой с врагами, которые начали бой с ними или с игроком. В противном случае они ждут, пока враги или игрок атакуют первыми"
+            android:summary="Make player followers and escorters start combat with enemies who have started combat with them or the player. Otherwise they wait for the enemies or the player to do an attack first"
             android:title="@string/pref_followers_attack_on_sight" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_can_loot_during_death_animation"
-            android:summary="Можно ограбить поверженных врагов во время анимации смерти"
+            android:summary="Can loot non-fighting actors during death animation"
             android:title="@string/pref_can_loot_during_death_animation" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_rebalance_soul_gem_values"
-            android:summary="Сделайте стоимость захваченых камней душ зависимой только от величины души (с формулой из патча Morrowind Code Patch)"
+            android:summary="Make the value of filled soul gems dependent only on soul magnitude (with formula from the Morrowind Code Patch)"
             android:title="@string/pref_rebalance_soul_gem_values" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_use_additional_anim_sources"
-            android:summary="Разрешить загрузку групповых OF-файлов из папки Animations"
+            android:summary="Allow to load per-group KF-files from Animations folder"
             android:title="@string/pref_use_additional_anim_sources" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_barter_disposition_change_is_permanent"
-            android:summary="Отношенние торговца к вам сохраняется, после сделки и закрытия диалогового окна с ним. В противном случае, отношение у торговца к вам будет прежним при последующей сделке"
+            android:summary="Make the disposition change of merchants caused by barter dealings permanent"
             android:title="@string/pref_barter_disposition_change_is_permanent" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_weapon_sheathing"
-            android:summary="Всегда видно оружие и амуницию NPC и главного героя от третьего лица. Нужен соотвоествтующий мод"
+            android:summary="Render holstered weapons (with quivers and scabbards), requires modded assets"
             android:title="@string/pref_weapon_sheathing" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_shield_sheathing"
-            android:summary="Всегда видны щиты у NPC и главного героя от третьего лица. Нужен соотвоествтующий мод"
+            android:summary="Render holstered shield when it is not in actor's hands, requires modded assets"
             android:title="@string/pref_shield_sheathing" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_only_appropriate_ammunition_bypasses_resistance"
-            android:summary="Разрешить нестандартным боеприпасам только обходить сопротивление или слабость обычного оружия"
+            android:summary="Allow non-standard ammunition solely to bypass normal weapon resistance or weakness"
             android:title="@string/pref_only_appropriate_ammunition_bypasses_resistance" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_use_magic_item_animations"
-            android:summary="Возможность видеть анимацию колдовства для зачарованых предметов во время их использования, как для обычных кастов заклинаний. Например, при использовании магического кольца на восстановление здоровья видна анимация руками персонажа, а не моментально, как в оригинальном Морровинде"
+            android:summary="Use casting animations for magic items, just as for spells"
             android:title="@string/pref_use_magic_item_animations" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_normalise_race_speed"
-            android:summary="Не учитыватся вес расы в расчетах скорости передвижения NPC"
+            android:summary="Don't use race weight in NPC movement speed calculations"
             android:title="@string/pref_normalise_race_speed" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_uncapped_damage_fatigue"
-            android:summary="Снимите ограничение на магический эффект «Ущерб от усталости», аналогичный эффекту «Похищение усталости». Это означает, что в отличие от Морровинда вы сможете сбивать актеров с помощью этого эффекта"
+            android:summary="# Make Damage Fatigue magic effect uncapped like Drain Fatigue effect. This means that unlike Morrowind you will be able to knock down actors using this effect"
             android:title="@string/pref_uncapped_damage_fatigue" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_turn_to_movement_direction"
-            android:summary="Поверните нижнюю часть тела в направлении движения. Делает диагональное движение более реалистичным"
+            android:summary="Turn lower body to movement direction. Enable - makes diagonal movement more realistic"
             android:title="@string/pref_turn_to_movement_direction" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_smooth_movement"
-            android:summary="Делает все движения NPC и игрока более плавными."
+            android:summary="Makes all movements of NPCs and player more smooth"
             android:title="@string/pref_smooth_movement" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_NPCs_avoid_collisions"
-            android:summary="Все NPC избегают столкновений с другими актерами."
+            android:summary="All actors avoid collisions with other actors"
             android:title="@string/pref_NPCs_avoid_collisions" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_NPCs_give_way"
-            android:summary="Во время простоя уступайте место движущимся актерам. Необходимо, чтобы «NPC стараются не сталкиватся» был включен"
+            android:summary="Give way to moving actors when idle. Requires 'NPCs avoid collisions' to be enabled"
             android:title="@string/pref_NPCs_give_way" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_swim_upward_correction"
-            android:summary="Заставляет игрока плавать немного вверх от прямой видимости"
+            android:summary="Makes player swim a bit upward from the line of sight"
             android:title="@string/pref_swim_upward_correction" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_trainers_training_skills_based_on_base_skill"
-            android:summary="Сделайте тренировочные навыки, предлагаемые тренером, на основе его базового атрибута, а не его модифицированных"
+            android:summary="Make the training skills proposed by a trainer based on its base attribute instead of its modified ones"
             android:title="@string/pref_trainers_training_skills_based_on_base_skill" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_always_allow_stealing_from_knocked_out_actors"
-            android:summary="Сделайте возможным кражу предметов у сбитых с ног неигровых персонажей во время боя"
+            android:summary="Make stealing items from NPCs that were knocked down possible during combat"
             android:title="@string/pref_always_allow_stealing_from_knocked_out_actors" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_graphic_herbalism"
-            android:summary="Возможность собирать грибы и растения сразу, нажав на них (использовать), в противном случае, сбор растительности будет выглядить как сбор лута с контейнеров а ростительность будет оставаться на месте. Требует соответствующий мод"
+            android:summary="Enables visually harvesting plants for models that support it"
             android:title="@string/pref_graphic_herbalism" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_allow_actors_to_follow_over_water_surface"
-            android:summary="Дает NPC возможность плавать по воде, когда они следуют за другим NPC или главным героем независимо от их способности плавать"
+            android:summary="Give actors an ability to swim over water surface when they follow other actor independently from their ability to swim (true, false)"
             android:title="@string/pref_allow_actors_to_follow_over_water_surface" />
 
         <ListPreference
@@ -640,6 +640,7 @@
             android:key="pref_projectiles_enchant_multiplier"
             android:summary="%s"
             android:title="@string/pref_projectiles_enchant_multiplier" />
+
 
     </PreferenceCategory>
 
@@ -671,31 +672,31 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_head_bobbing"
-            android:summary="Покачивание головой, во время движения от первого лица, в противном случаве, передвижение будет плавным и не реалистичным"
+            android:summary="Enables head bobbing in first person mode"
             android:title="@string/pref_head_bobbing" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_view_over_shoulder"
-            android:summary="Поместить камеру от плеча, как в скайриме"
+            android:summary=" If enabled then third person camera is positioned above character's shoulder and crosshair is visible"
             android:title="@string/pref_view_over_shoulder" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_auto_switch_shoulder"
-            android:summary="Если под определенным ракурсом у камеры есть препятствие, камера меняет плечо"
+            android:summary="Switch shoulder automatically when player is close to an obstacle"
             android:title="@string/pref_auto_switch_shoulder" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_preview_if_stand_still"
-            android:summary="Автоматически включать режим предварительного просмотра, когда игрок не двигается"
+            android:summary="Automatically enable preview mode when player doesn't move"
             android:title="@string/pref_preview_if_stand_still" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_deferred_preview_rotation"
-            android:summary="После выхода из режима предварительного просмотра поверните символ в направлении взгляда"
+            android:summary="Rotate the character to the view direction after exiting preview mode"
             android:title="@string/pref_deferred_preview_rotation" />
 
     </PreferenceCategory>
@@ -705,7 +706,7 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_groundcover_enable"
-            android:summary="Возможность подключить мод с травой таким образом, чтобы сделать траву анимированной"
+            android:summary="Enable separate groundcover handling"
             android:title="@string/pref_groundcover_enable" />
 
         <ListPreference
@@ -760,7 +761,7 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_global_functions"
-            android:summary="Все изменения в лаунчере записываются в файл settings.cfg, если отключить - запись в файл не производится, изменения в лаунчере не учитываются, что дает возможность более опытному пользователю использовать свой, заранее подготовленный файл конфигурации"
+            android:summary="Write changes from the launcher to the settings.cfg file. If disabled, no changes will be recorded, this is useful for those players who have their own configuration file"
             android:title="@string/pref_global_functions" />
 
         <EditTextPreference
