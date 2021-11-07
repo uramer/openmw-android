@@ -132,6 +132,24 @@
             android:summary="Apply the defined color to dialogue topic"
             android:title="@string/pref_color_topic_enable" />
 
+        <ListPreference
+            android:defaultValue="@string/pref_color_topic_specific_default"
+            android:dialogTitle="@string/pref_color_topic_specific"
+            android:entries="@array/pref_color_topic_specific_entries"
+            android:entryValues="@array/pref_color_topic_specific_values"
+            android:key="pref_color_topic_specific"
+            android:summary="%s"
+            android:title="@string/pref_color_topic_specific" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_color_topic_exhausted_default"
+            android:dialogTitle="@string/pref_color_topic_exhausted"
+            android:entries="@array/pref_color_topic_exhausted_entries"
+            android:entryValues="@array/pref_color_topic_exhausted_values"
+            android:key="pref_color_topic_exhausted"
+            android:summary="%s"
+            android:title="@string/pref_color_topic_exhausted" />
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_subtitles"
@@ -396,6 +414,24 @@
             android:key="pref_lod_factor"
             android:summary="%s"
             android:title="@string/pref_lod_factor" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_vertex_lod_mod_default"
+            android:dialogTitle="@string/pref_vertex_lod_mod"
+            android:entries="@array/pref_vertex_lod_mod_entries"
+            android:entryValues="@array/pref_vertex_lod_mod_values"
+            android:key="pref_vertex_lod_mod"
+            android:summary="%s"
+            android:title="@string/pref_vertex_lod_mod" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_composite_map_level_default"
+            android:dialogTitle="@string/pref_composite_map_level"
+            android:entries="@array/pref_composite_map_level_entries"
+            android:entryValues="@array/pref_composite_map_level_values"
+            android:key="pref_composite_map_level"
+            android:summary="%s"
+            android:title="@string/pref_composite_map_level" />
 
         <CheckBoxPreference
             android:defaultValue="true"
