@@ -473,7 +473,7 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "composite map level", prefs.getString("pref_composite_map_level", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "color topic specific", prefs.getString("pref_color_topic_specific", "true")!!)
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "color topic exhausted", prefs.getString("pref_color_topic_exhausted", "true")!!)
-
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "async nav mesh updater threads", prefs.getString("pref_async_nav_mesh_updater_threads", "true")!!)
 
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "vsync", (if (prefs.getBoolean("pref_vsync", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload enabled", (if (prefs.getBoolean("pref_preloading", false)) "true" else "false"))
@@ -537,6 +537,7 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "preload instances", (if (prefs.getBoolean("pref_preload_instances", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging", (if (prefs.getBoolean("pref_object_paging", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "always run", (if (prefs.getBoolean("pref_always_run", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "load unsupported nif files", (if (prefs.getBoolean("pref_load_unsupported_nif_files", false)) "true" else "false"))
                 }
 
 

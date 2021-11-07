@@ -31,24 +31,6 @@
             android:summary="On-screen interface elements"
             android:title="@string/action_show_screen_controls" />
 
-        <ListPreference
-            android:defaultValue="@string/pref_mygui_default"
-            android:dialogTitle="@string/pref_mygui"
-            android:entries="@array/pref_mygui_entries"
-            android:entryValues="@array/pref_mygui_values"
-            android:key="pref_mygui"
-            android:summary="%s"
-            android:title="@string/pref_mygui" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_vfs_selector_default"
-            android:dialogTitle="@string/pref_vfs_selector"
-            android:entries="@array/pref_vfs_selector_entries"
-            android:entryValues="@array/pref_vfs_selector_values"
-            android:key="pref_vfs_selector"
-            android:summary="%s"
-            android:title="@string/pref_vfs_selector" />
-
         <EditTextPreference
             android:baselineAligned="false"
             android:dialogTitle="@string/pref_gamma"
@@ -58,15 +40,6 @@
             android:key="pref_gamma"
             android:textAllCaps="false"
             android:title="@string/pref_gamma" />
-
-        <EditTextPreference
-            android:dialogTitle="@string/pref_uiScaling"
-            android:summary="Scales the game interface. The higher the value, the larger the buttons, text, menus, etc"
-            android:hint="1.5"
-            android:inputType="numberDecimal"
-            android:key="pref_uiScaling"
-            android:textStyle="bold"
-            android:title="@string/pref_uiScaling" />
 
         <ListPreference
             android:defaultValue="@string/pref_mouse_mode_default"
@@ -109,89 +82,72 @@
             android:title="@string/pref_show_fn" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_gyroscope"
-            android:summary="The ability to control the camera with a gyroscope (if your device has one)"
-            android:title="@string/pref_gyroscope" />
-
-        <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_screen_keeper"
             android:summary="Do not turn off the screen and do not go to sleep if there is a long absence of interaction with the device"
             android:title="@string/pref_screen_keeper" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_camera">
+
+        <ListPreference
+            android:defaultValue="@string/pref_viewing_distance_default"
+            android:dialogTitle="@string/pref_viewing_distance"
+            android:entries="@array/pref_viewing_distance_entries"
+            android:entryValues="@array/pref_viewing_distance_values"
+            android:key="pref_viewing_distance"
+            android:summary="%s"
+            android:title="@string/pref_viewing_distance" />
+
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="pref_stretch_menu_background"
-            android:summary="The background image in the main menu and on loading screens will be stretched to full screen, regardless of the screen aspect ratio"
-            android:title="@string/pref_stretch_menu_background" />
+            android:key="pref_small_feature_culling"
+            android:summary="Cull objects that occupy less than small feature culling pixel size on the screen"
+            android:title="@string/pref_small_feature_culling" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_small_feature_culling_pixel_size_default"
+            android:dialogTitle="@string/pref_small_feature_culling_pixel_size"
+            android:entries="@array/pref_small_feature_culling_pixel_size_entries"
+            android:entryValues="@array/pref_small_feature_culling_pixel_size_values"
+            android:key="pref_small_feature_culling_pixel_size"
+            android:summary="%s"
+            android:title="@string/pref_small_feature_culling_pixel_size" />
 
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="pref_color_topic_enable"
-            android:summary="Apply the defined color to dialogue topic"
-            android:title="@string/pref_color_topic_enable" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_color_topic_specific_default"
-            android:dialogTitle="@string/pref_color_topic_specific"
-            android:entries="@array/pref_color_topic_specific_entries"
-            android:entryValues="@array/pref_color_topic_specific_values"
-            android:key="pref_color_topic_specific"
-            android:summary="%s"
-            android:title="@string/pref_color_topic_specific" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_color_topic_exhausted_default"
-            android:dialogTitle="@string/pref_color_topic_exhausted"
-            android:entries="@array/pref_color_topic_exhausted_entries"
-            android:entryValues="@array/pref_color_topic_exhausted_values"
-            android:key="pref_color_topic_exhausted"
-            android:summary="%s"
-            android:title="@string/pref_color_topic_exhausted" />
+            android:key="pref_head_bobbing"
+            android:summary="Enables head bobbing in first person mode"
+            android:title="@string/pref_head_bobbing" />
 
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="pref_subtitles"
-            android:summary="Enable subtitles on game"
-            android:title="@string/pref_subtitles" />
+            android:key="pref_view_over_shoulder"
+            android:summary=" If enabled then third person camera is positioned above character's shoulder and crosshair is visible"
+            android:title="@string/pref_view_over_shoulder" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_auto_switch_shoulder"
+            android:summary="Switch shoulder automatically when player is close to an obstacle"
+            android:title="@string/pref_auto_switch_shoulder" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_preview_if_stand_still"
+            android:summary="Automatically enable preview mode when player doesn't move"
+            android:title="@string/pref_preview_if_stand_still" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_deferred_preview_rotation"
+            android:summary="Rotate the character to the view direction after exiting preview mode"
+            android:title="@string/pref_deferred_preview_rotation" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/category_performance">
-
-        <ListPreference
-            android:defaultValue="@string/pref_physicsFPS2_default"
-            android:dialogTitle="@string/pref_physicsFPS2"
-            android:entries="@array/pref_physicsFPS2_entries"
-            android:entryValues="@array/pref_physicsFPS2_values"
-            android:key="pref_physicsFPS2"
-            android:summary="%s"
-            android:title="@string/pref_physicsFPS2" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_framerate_limit_default"
-            android:dialogTitle="@string/pref_framerate_limit"
-            android:entries="@array/pref_framerate_limit_entries"
-            android:entryValues="@array/pref_framerate_limit_values"
-            android:key="pref_framerate_limit"
-            android:summary="%s"
-            android:title="@string/pref_framerate_limit" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_target_framerate_default"
-            android:dialogTitle="@string/pref_target_framerate"
-            android:entries="@array/pref_target_framerate_entries"
-            android:entryValues="@array/pref_target_framerate_values"
-            android:key="pref_target_framerate"
-            android:summary="%s"
-            android:title="@string/pref_target_framerate" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="pref_vsync"
-            android:summary="Limits FPS to the frame rate of your device. It is recommended to turn it on so that the smartphone does not overheat"
-            android:title="@string/pref_vsync" />
+    <PreferenceCategory android:title="@string/pref_menu_cells">
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -221,7 +177,6 @@
             android:defaultValue="true"
             android:summary="Controls whether or not the nodes/collision shapes are pre-instanced (i.e. cloned) when a cell is preloaded. Enabling this option slightly reduces the time it takes to transition into a preloaded cell, but also results in higher memory usage proportional to the number of cells that are preloaded"
             android:key="pref_preload_instances"
-
             android:title="@string/pref_preload_instances" />
 
         <ListPreference
@@ -243,168 +198,23 @@
             android:title="@string/pref_preload_num_threads" />
 
         <ListPreference
-            android:defaultValue="@string/pref_async_default"
-            android:dialogTitle="@string/pref_async"
-            android:entries="@array/pref_async_entries"
-            android:entryValues="@array/pref_async_values"
-            android:key="pref_async"
+            android:defaultValue="@string/pref_target_framerate_default"
+            android:dialogTitle="@string/pref_target_framerate"
+            android:entries="@array/pref_target_framerate_entries"
+            android:entryValues="@array/pref_target_framerate_values"
+            android:key="pref_target_framerate"
             android:summary="%s"
-            android:title="@string/pref_async" />
+            android:title="@string/pref_target_framerate" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/pref_videopref">
-
-        <ListPreference
-            android:defaultValue="@string/pref_graphicsLibrary_default"
-            android:dialogTitle="@string/pref_graphicsLibrary"
-            android:entries="@array/pref_graphicsLibrary_entries"
-            android:entryValues="@array/pref_graphicsLibrary_values"
-            android:key="pref_graphicsLibrary_v2"
-            android:summary="%s"
-            android:selectable="false"
-            android:title="@string/pref_graphicsLibrary" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_viewing_distance_default"
-            android:dialogTitle="@string/pref_viewing_distance"
-            android:entries="@array/pref_viewing_distance_entries"
-            android:entryValues="@array/pref_viewing_distance_values"
-            android:key="pref_viewing_distance"
-            android:summary="%s"
-            android:title="@string/pref_viewing_distance" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_antialiasing_default"
-            android:dialogTitle="@string/pref_antialiasing"
-            android:entries="@array/pref_antialiasing_entries"
-            android:entryValues="@array/pref_antialiasing_values"
-            android:key="pref_antialiasing"
-            android:summary="%s"
-            android:title="@string/pref_antialiasing" />
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="pref_small_feature_culling"
-            android:summary="Cull objects that occupy less than small feature culling pixel size on the screen"
-            android:title="@string/pref_small_feature_culling" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_small_feature_culling_pixel_size_default"
-            android:dialogTitle="@string/pref_small_feature_culling_pixel_size"
-            android:entries="@array/pref_small_feature_culling_pixel_size_entries"
-            android:entryValues="@array/pref_small_feature_culling_pixel_size_values"
-            android:key="pref_small_feature_culling_pixel_size"
-            android:summary="%s"
-            android:title="@string/pref_small_feature_culling_pixel_size" />
+    <PreferenceCategory android:title="@string/pref_menu_terrain">
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_distant"
             android:summary="If true, use paging and LOD algorithms to display the entire terrain. If false, only display terrain of the loaded cells"
             android:title="@string/pref_distant" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:summary="Force rendering with shaders. By default, only bump-mapped objects will use shaders. Enabling this option may cause slightly different visuals if the clamp lighting option is set to false. Otherwise, there should not be a visual difference"
-            android:key="pref_shaders"
-            android:title="@string/pref_shaders" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_auto_use_pbr"
-            android:summary="If this option is enabled, normal maps are automatically recognized and used if they are named appropriately (see normal map pattern, e.g. for a base texture foo.dds, the normal map texture would have to be named foo_n.dds).If this option is disabled, normal maps are only used if they are explicitly listed within the mesh file (.nif or .osg file). Affects objects"
-            android:title="@string/pref_auto_use_pbr" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_apply_lighting_to_environment_maps"
-            android:summary="Apply lighting to reflections on the environment-mapped objects like in Morrowind Code Patch. Affected objects use shaders"
-            android:title="@string/pref_apply_lighting_to_environment_maps" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_pix_light"
-            android:summary="Force the use of per pixel lighting. By default, only bump mapped objects use per-pixel lighting. Has no effect if the force shaders option is false. Enabling per-pixel lighting can result in visual differences to the original MW engine. It is not recommended to enable this option when using vanilla Morrowind files, because certain lights in Morrowind rely on vertex lighting to look as intended"
-            android:title="@string/pref_pix_light" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_clamp_lighting"
-            android:summary="Restrict the amount of lighting that an object can receive to a maximum of (1,1,1). Only affects objects that render with shaders (see force shaders option). Always affects terrain. Setting this option to true results in fixed-function compatible lighting, but the lighting may appear dull and there might be color shifts. Setting this option to false results in more realistic lighting"
-            android:title="@string/pref_clamp_lighting" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_lighting_method_default"
-            android:dialogTitle="@string/pref_lighting_method"
-            android:entries="@array/pref_lighting_method_entries"
-            android:entryValues="@array/pref_lighting_method_values"
-            android:key="pref_lighting_method"
-            android:summary="%s"
-            android:title="@string/pref_lighting_method" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_max_lights_default"
-            android:dialogTitle="@string/pref_max_lights"
-            android:entries="@array/pref_max_lights_entries"
-            android:entryValues="@array/pref_max_lights_values"
-            android:key="pref_max_lights"
-            android:summary="%s"
-            android:title="@string/pref_max_lights" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_minimum_interior_brightness_default"
-            android:dialogTitle="@string/pref_minimum_interior_brightness"
-            android:entries="@array/pref_minimum_interior_brightness_entries"
-            android:entryValues="@array/pref_minimum_interior_brightness_values"
-            android:key="pref_minimum_interior_brightness"
-            android:summary="%s"
-            android:title="@string/pref_minimum_interior_brightness" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_radfog"
-            android:summary="Determine fog intensity based on the distance from the eye point. This makes fogging independent from the viewing angle. Shaders will be used to render all objects"
-            android:title="@string/pref_radfog" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_shader_water"
-            android:summary="Enable water shader with reflections and optionally refraction"
-            android:title="@string/pref_shader_water" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_water_preset_default"
-            android:dialogTitle="@string/pref_water_preset"
-            android:entries="@array/pref_water_preset_entries"
-            android:entryValues="@array/pref_water_preset_values"
-            android:key="pref_water_preset"
-            android:summary="%s"
-            android:title="@string/pref_water_preset" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_refraction"
-            android:summary="Enable refraction which affects visibility through water plane"
-            android:title="@string/pref_refraction" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_rtt_size_default"
-            android:dialogTitle="@string/pref_rtt_size"
-            android:entries="@array/pref_rtt_size_entries"
-            android:entryValues="@array/pref_rtt_size_values"
-            android:key="pref_rtt_size"
-            android:summary="%s"
-            android:title="@string/pref_rtt_size" />
-
-        <ListPreference
-            android:defaultValue="@string/pref_reflection_detail_default"
-            android:dialogTitle="@string/pref_reflection_detail"
-            android:entries="@array/pref_reflection_detail_entries"
-            android:entryValues="@array/pref_reflection_detail_values"
-            android:key="pref_reflection_detail"
-            android:summary="%s"
-            android:title="@string/pref_reflection_detail" />
 
         <ListPreference
             android:defaultValue="@string/pref_lod_factor_default"
@@ -459,16 +269,179 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/cat_game">
+    <PreferenceCategory android:title="@string/pref_menu_gui">
+
+        <EditTextPreference
+            android:dialogTitle="@string/pref_uiScaling"
+            android:summary="Scales the game interface. The higher the value, the larger the buttons, text, menus, etc"
+            android:hint="1.5"
+            android:inputType="numberDecimal"
+            android:key="pref_uiScaling"
+            android:textStyle="bold"
+            android:title="@string/pref_uiScaling" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_stretch_menu_background"
+            android:summary="The background image in the main menu and on loading screens will be stretched to full screen, regardless of the screen aspect ratio"
+            android:title="@string/pref_stretch_menu_background" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_subtitles"
+            android:summary="Enable subtitles on game"
+            android:title="@string/pref_subtitles" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_color_topic_enable"
+            android:summary="Apply the defined color to dialogue topic"
+            android:title="@string/pref_color_topic_enable" />
 
         <ListPreference
-            android:defaultValue="@string/pref_difficulty_default"
-            android:dialogTitle="@string/pref_difficulty"
-            android:entries="@array/pref_difficulty_entries"
-            android:entryValues="@array/pref_difficulty_values"
-            android:key="pref_difficulty"
+            android:defaultValue="@string/pref_color_topic_specific_default"
+            android:dialogTitle="@string/pref_color_topic_specific"
+            android:entries="@array/pref_color_topic_specific_entries"
+            android:entryValues="@array/pref_color_topic_specific_values"
+            android:key="pref_color_topic_specific"
             android:summary="%s"
-            android:title="@string/pref_difficulty" />
+            android:title="@string/pref_color_topic_specific" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_color_topic_exhausted_default"
+            android:dialogTitle="@string/pref_color_topic_exhausted"
+            android:entries="@array/pref_color_topic_exhausted_entries"
+            android:entryValues="@array/pref_color_topic_exhausted_values"
+            android:key="pref_color_topic_exhausted"
+            android:summary="%s"
+            android:title="@string/pref_color_topic_exhausted" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_mygui_default"
+            android:dialogTitle="@string/pref_mygui"
+            android:entries="@array/pref_mygui_entries"
+            android:entryValues="@array/pref_mygui_values"
+            android:key="pref_mygui"
+            android:summary="%s"
+            android:title="@string/pref_mygui" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_vfs_selector_default"
+            android:dialogTitle="@string/pref_vfs_selector"
+            android:entries="@array/pref_vfs_selector_entries"
+            android:entryValues="@array/pref_vfs_selector_values"
+            android:key="pref_vfs_selector"
+            android:summary="%s"
+            android:title="@string/pref_vfs_selector" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_videopref">
+
+        <ListPreference
+            android:defaultValue="@string/pref_graphicsLibrary_default"
+            android:dialogTitle="@string/pref_graphicsLibrary"
+            android:entries="@array/pref_graphicsLibrary_entries"
+            android:entryValues="@array/pref_graphicsLibrary_values"
+            android:key="pref_graphicsLibrary_v2"
+            android:summary="%s"
+            android:selectable="false"
+            android:title="@string/pref_graphicsLibrary" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_antialiasing_default"
+            android:dialogTitle="@string/pref_antialiasing"
+            android:entries="@array/pref_antialiasing_entries"
+            android:entryValues="@array/pref_antialiasing_values"
+            android:key="pref_antialiasing"
+            android:summary="%s"
+            android:title="@string/pref_antialiasing" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_framerate_limit_default"
+            android:dialogTitle="@string/pref_framerate_limit"
+            android:entries="@array/pref_framerate_limit_entries"
+            android:entryValues="@array/pref_framerate_limit_values"
+            android:key="pref_framerate_limit"
+            android:summary="%s"
+            android:title="@string/pref_framerate_limit" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_vsync"
+            android:summary="Limits FPS to the frame rate of your device. It is recommended to turn it on so that the smartphone does not overheat"
+            android:title="@string/pref_vsync" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_shaders">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:summary="Force rendering with shaders. By default, only bump-mapped objects will use shaders. Enabling this option may cause slightly different visuals if the clamp lighting option is set to false. Otherwise, there should not be a visual difference"
+            android:key="pref_shaders"
+            android:title="@string/pref_shaders" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_auto_use_pbr"
+            android:summary="If this option is enabled, normal maps are automatically recognized and used if they are named appropriately (see normal map pattern, e.g. for a base texture foo.dds, the normal map texture would have to be named foo_n.dds).If this option is disabled, normal maps are only used if they are explicitly listed within the mesh file (.nif or .osg file). Affects objects"
+            android:title="@string/pref_auto_use_pbr" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_apply_lighting_to_environment_maps"
+            android:summary="Apply lighting to reflections on the environment-mapped objects like in Morrowind Code Patch. Affected objects use shaders"
+            android:title="@string/pref_apply_lighting_to_environment_maps" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_pix_light"
+            android:summary="Force the use of per pixel lighting. By default, only bump mapped objects use per-pixel lighting. Has no effect if the force shaders option is false. Enabling per-pixel lighting can result in visual differences to the original MW engine. It is not recommended to enable this option when using vanilla Morrowind files, because certain lights in Morrowind rely on vertex lighting to look as intended"
+            android:title="@string/pref_pix_light" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_clamp_lighting"
+            android:summary="Restrict the amount of lighting that an object can receive to a maximum of (1,1,1). Only affects objects that render with shaders (see force shaders option). Always affects terrain. Setting this option to true results in fixed-function compatible lighting, but the lighting may appear dull and there might be color shifts. Setting this option to false results in more realistic lighting"
+            android:title="@string/pref_clamp_lighting" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_radfog"
+            android:summary="Determine fog intensity based on the distance from the eye point. This makes fogging independent from the viewing angle. Shaders will be used to render all objects"
+            android:title="@string/pref_radfog" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_lighting_method_default"
+            android:dialogTitle="@string/pref_lighting_method"
+            android:entries="@array/pref_lighting_method_entries"
+            android:entryValues="@array/pref_lighting_method_values"
+            android:key="pref_lighting_method"
+            android:summary="%s"
+            android:title="@string/pref_lighting_method" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_max_lights_default"
+            android:dialogTitle="@string/pref_max_lights"
+            android:entries="@array/pref_max_lights_entries"
+            android:entryValues="@array/pref_max_lights_values"
+            android:key="pref_max_lights"
+            android:summary="%s"
+            android:title="@string/pref_max_lights" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_minimum_interior_brightness_default"
+            android:dialogTitle="@string/pref_minimum_interior_brightness"
+            android:entries="@array/pref_minimum_interior_brightness_entries"
+            android:entryValues="@array/pref_minimum_interior_brightness_values"
+            android:key="pref_minimum_interior_brightness"
+            android:summary="%s"
+            android:title="@string/pref_minimum_interior_brightness" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_input">
 
         <CheckBoxPreference
             android:defaultValue="true"
@@ -481,6 +454,113 @@
             android:key="pref_always_run"
             android:summary="Player is running by default"
             android:title="@string/pref_always_run" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_gyroscope"
+            android:summary="The ability to control the camera with a gyroscope (if your device has one)"
+            android:title="@string/pref_gyroscope" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_water">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_shader_water"
+            android:summary="Enable water shader with reflections and optionally refraction"
+            android:title="@string/pref_shader_water" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_water_preset_default"
+            android:dialogTitle="@string/pref_water_preset"
+            android:entries="@array/pref_water_preset_entries"
+            android:entryValues="@array/pref_water_preset_values"
+            android:key="pref_water_preset"
+            android:summary="%s"
+            android:title="@string/pref_water_preset" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_refraction"
+            android:summary="Enable refraction which affects visibility through water plane"
+            android:title="@string/pref_refraction" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_rtt_size_default"
+            android:dialogTitle="@string/pref_rtt_size"
+            android:entries="@array/pref_rtt_size_entries"
+            android:entryValues="@array/pref_rtt_size_values"
+            android:key="pref_rtt_size"
+            android:summary="%s"
+            android:title="@string/pref_rtt_size" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_reflection_detail_default"
+            android:dialogTitle="@string/pref_reflection_detail"
+            android:entries="@array/pref_reflection_detail_entries"
+            android:entryValues="@array/pref_reflection_detail_values"
+            android:key="pref_reflection_detail"
+            android:summary="%s"
+            android:title="@string/pref_reflection_detail" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_navigator">
+
+        <ListPreference
+            android:defaultValue="@string/pref_async_nav_mesh_updater_threads_default"
+            android:dialogTitle="@string/pref_async_nav_mesh_updater_threads"
+            android:entries="@array/pref_async_nav_mesh_updater_threads_entries"
+            android:entryValues="@array/pref_async_nav_mesh_updater_threads_values"
+            android:key="pref_async_nav_mesh_updater_threads"
+            android:summary="%s"
+            android:title="@string/pref_async_nav_mesh_updater_threads" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_physics">
+
+        <ListPreference
+            android:defaultValue="@string/pref_physicsFPS2_default"
+            android:dialogTitle="@string/pref_physicsFPS2"
+            android:entries="@array/pref_physicsFPS2_entries"
+            android:entryValues="@array/pref_physicsFPS2_values"
+            android:key="pref_physicsFPS2"
+            android:summary="%s"
+            android:title="@string/pref_physicsFPS2" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_async_default"
+            android:dialogTitle="@string/pref_async"
+            android:entries="@array/pref_async_entries"
+            android:entryValues="@array/pref_async_values"
+            android:key="pref_async"
+            android:summary="%s"
+            android:title="@string/pref_async" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_menu_models">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_load_unsupported_nif_files"
+            android:summary="Attempt to load any valid NIF file regardless of its version and track the progress. Loading arbitrary meshes is not advised and may cause instability"
+            android:title="@string/pref_load_unsupported_nif_files" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_game">
+
+        <ListPreference
+            android:defaultValue="@string/pref_difficulty_default"
+            android:dialogTitle="@string/pref_difficulty"
+            android:entries="@array/pref_difficulty_entries"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="pref_difficulty"
+            android:summary="%s"
+            android:title="@string/pref_difficulty" />
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -700,40 +780,6 @@
             android:key="pref_max_quicksaves"
             android:summary="%s"
             android:title="@string/pref_max_quicksaves" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/pref_camera">
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_head_bobbing"
-            android:summary="Enables head bobbing in first person mode"
-            android:title="@string/pref_head_bobbing" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_view_over_shoulder"
-            android:summary=" If enabled then third person camera is positioned above character's shoulder and crosshair is visible"
-            android:title="@string/pref_view_over_shoulder" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_auto_switch_shoulder"
-            android:summary="Switch shoulder automatically when player is close to an obstacle"
-            android:title="@string/pref_auto_switch_shoulder" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_preview_if_stand_still"
-            android:summary="Automatically enable preview mode when player doesn't move"
-            android:title="@string/pref_preview_if_stand_still" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_deferred_preview_rotation"
-            android:summary="Rotate the character to the view direction after exiting preview mode"
-            android:title="@string/pref_deferred_preview_rotation" />
 
     </PreferenceCategory>
 
