@@ -267,6 +267,18 @@
             android:summary="%s"
             android:title="@string/pref_object_paging_merge_factor" />
 
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_occlusion_culling"
+            android:summary="Terrain occlusion culling for main camera"
+            android:title="@string/pref_occlusion_culling" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_reflection_occlusion_culling"
+            android:summary="Terrain occlusion culling for reflection camera"
+            android:title="@string/pref_reflection_occlusion_culling" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_menu_gui">

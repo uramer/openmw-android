@@ -538,6 +538,8 @@ class MainActivity : AppCompatActivity() {
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "object paging", (if (prefs.getBoolean("pref_object_paging", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "always run", (if (prefs.getBoolean("pref_always_run", false)) "true" else "false"))
                 file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "load unsupported nif files", (if (prefs.getBoolean("pref_load_unsupported_nif_files", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "occlusion culling", (if (prefs.getBoolean("pref_occlusion_culling", false)) "true" else "false"))
+                file.Writer.write(Constants.USER_CONFIG + "/settings.cfg", "reflection occlusion culling", (if (prefs.getBoolean("pref_reflection_occlusion_culling", false)) "true" else "false"))
                 }
 
 
