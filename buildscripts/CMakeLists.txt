@@ -52,6 +52,10 @@ set(LZ4_HASH SHA256=030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ff
 set(LUAJIT_VERSION 2.1.0-beta3)
 set(LUAJIT_HASH SHA256=1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3)
 
+# https://www.sqlite.org/download.html
+set(SQLITE_VERSION 3360000)
+set(SQLITE_HASH SHA256=bd90c3eb96bee996206b83be7065c9ce19aef38c3f4fb53073ada0d0b69bbce3)
+
 # https://github.com/OpenMW/openmw/commits/master
 set(OPENMW_VERSION 063af50deebe66e6a6555055c6d88feaa6a27148)
 #set(OPENMW_HASH SHA256=8ce70ffabcc03dba33fe955b273ae6a6afe3ae054797261f38781a869a0e04ec)
@@ -350,7 +354,7 @@ ExternalProject_Add(mygui
 	-DMYGUI_BUILD_TOOLS=OFF
 	-DMYGUI_BUILD_PLUGINS=OFF
 	-DFREETYPE_FT2BUILD_INCLUDE_DIR=${prefix}/include/freetype2/
-
+        -DMYGUI_DONT_USE_OBSOLETE=OFF
 	-DMYGUI_STATIC=ON
 
 	BUILD_COMMAND ${wrapper_command} $(MAKE)
@@ -402,11 +406,85 @@ ExternalProject_Add(luajit
 	COMMAND bash -c "rm ${prefix}/lib/libluajit*.so*"
 )
 
+ExternalProject_Add(sqlite
+	URL https://www.sqlite.org/2021/sqlite-autoconf-${SQLITE_VERSION}.tar.gz
+	URL_HASH ${SQLITE_HASH}
+	DOWNLOAD_DIR ${download_dir}
+
+	CONFIGURE_COMMAND ${wrapper_command} <SOURCE_DIR>/configure
+	${COMMON_AUTOCONF_FLAGS}
+
+	BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+	INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+ExternalProject_Add(zlib
+		URL https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz
+		URL_HASH SHA256=629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff
+		DOWNLOAD_DIR ${download_dir}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+ExternalProject_Add(libxml
+		DEPENDS zlib
+
+		URL https://github.com/GNOME/libxml2/archive/refs/tags/v2.9.12.tar.gz
+		URL_HASH SHA256=8a4ddd706419c210b30b8978a51388937fd9362c34fc9a3d69e4fcc6f8055ee0
+		DOWNLOAD_DIR ${download_dir}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+		-DBUILD_SHARED_LIBS=OFF
+		-DLIBXML2_WITH_CATALOG=OFF
+		-DLIBXML2_WITH_ICONV=OFF
+		-DLIBXML2_WITH_LZMA=OFF
+		-DLIBXML2_WITH_PROGRAMS=OFF
+		-DLIBXML2_WITH_PYTHON=OFF
+		-DLIBXML2_WITH_TESTS=OFF
+		-DLIBXML2_WITH_ZLIB=ON
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+set(LIBCOLLADA_PATCH patch -d <SOURCE_DIR> -p0 -t -N < ${CMAKE_SOURCE_DIR}/patches/libcollada-minizip-fix.patch)
+
+ExternalProject_Add(libcollada
+		DEPENDS libxml boost
+
+		URL https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz
+		URL_HASH SHA256=3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d
+		DOWNLOAD_DIR ${download_dir}
+
+		PATCH_COMMAND ${LIBCOLLADA_PATCH}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+		-DBoost_USE_STATIC_LIBS=ON
+		-DBoost_USE_STATIC_RUNTIME=ON
+		-DBoost_NO_SYSTEM_PATHS=ON
+		-DBoost_INCLUDE_DIR=${prefix}/include
+		-DHAVE_STRTOQ=0
+		-DUSE_FILE32API=1
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
 set(OSG_COMMON
 	-DOPENGL_PROFILE="GL1"
 	-DDYNAMIC_OPENTHREADS=OFF
 	-DDYNAMIC_OPENSCENEGRAPH=OFF
 	-DBUILD_OSG_PLUGIN_OSG=ON
+	-DBUILD_OSG_PLUGIN_DAE=ON
 	-DBUILD_OSG_PLUGIN_DDS=ON
 	-DBUILD_OSG_PLUGIN_TGA=ON
 	-DBUILD_OSG_PLUGIN_BMP=ON
@@ -446,7 +524,7 @@ set(OSG_PATCH
 )
 
 ExternalProject_Add(osg
-	DEPENDS libjpeg-turbo libpng gl4es freetype2
+	DEPENDS libjpeg-turbo libpng zlib gl4es freetype2 libcollada
 
 	URL https://github.com/openmw/osg/archive/${OSG_VERSION}.tar.gz
 #	URL https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-${OSG_VERSION}.tar.gz
@@ -497,7 +575,7 @@ set(OPENMW_PATCH
 )
 
 ExternalProject_Add(openmw
-	DEPENDS boost openal gl4es osg mygui ffmpeg sdl2 bullet lz4 luajit
+	DEPENDS boost openal gl4es osg mygui ffmpeg sdl2 bullet lz4 luajit sqlite
 
 	URL https://gitlab.com/OpenMW/openmw/-/archive/${OPENMW_VERSION}.tar.gz
 #	URL https://github.com/OpenMW/openmw/archive/${OPENMW_VERSION}.tar.gz
