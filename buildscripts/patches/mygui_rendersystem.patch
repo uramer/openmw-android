@@ -1,0 +1,23 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 72dbe99..7be47e6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -134,17 +134,7 @@ option(MYGUI_USE_FREETYPE "Use freetype for font texture rendering" TRUE)
+ option(MYGUI_MSDF_FONTS "Enable msdf fonts generation support" FALSE)
+ option(MYGUI_DONT_USE_OBSOLETE "Remove obsolete functions from build" FALSE)
+ 
+-set(MYGUI_RENDERSYSTEM 3 CACHE STRING
+-"Specify the Render System. Possible values:
+-  1 - Dummy
+-  2 - Export (not used)
+-  3 - Ogre
+-  4 - OpenGL
+-  5 - Direct3D 9
+-  6 - Direct3D 11
+-  7 - OpenGL 3.x
+-  8 - OpenGL ES 2.0 (Emscripten)"
+-)
++set(MYGUI_RENDERSYSTEM "OpenGL")
+ 
+ if(MYGUI_RENDERSYSTEM EQUAL 4 OR MYGUI_RENDERSYSTEM EQUAL 7)
+ 	option(MYGUI_USE_SYSTEM_GLEW "Use system OpenGL Extension Wrangler Library (GLEW)" FALSE)
