@@ -10,18 +10,18 @@ snprintf randomly returns -1 on android
  1 file changed, 2 insertions(+), 7 deletions(-)
 
 diff --git a/components/misc/stringops.hpp b/components/misc/stringops.hpp
-index 086352235..52d54acb8 100644
+index fe4be0000..dcbf8289d 100644
 --- a/components/misc/stringops.hpp
 +++ b/components/misc/stringops.hpp
-@@ -6,6 +6,7 @@
- #include <algorithm>
+@@ -7,6 +7,7 @@
  #include <string_view>
  #include <iterator>
+ #include <functional>
 +#include <boost/format.hpp>
- 
- #include "utf8stream.hpp"
- 
-@@ -250,13 +251,7 @@ public:
+
+ namespace Misc
+ {
+@@ -167,13 +168,7 @@ public:
      template <typename ... Args>
      static std::string format(const char* fmt, Args const & ... args)
      {
@@ -34,5 +34,5 @@ index 086352235..52d54acb8 100644
 -        return ret;
 +        return boost::str((boost::format(fmt) % ... % args));
      }
- 
+
      template <typename ... Args>
