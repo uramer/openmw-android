@@ -33,16 +33,16 @@ set(BULLET_VERSION 3.17)
 set(BULLET_HASH SHA256=baa642c906576d4d98d041d0acb80d85dd6eff6e3c16a009b1abf1ccd2bc0a61)
 
 # https://github.com/MyGUI/mygui/releases
-set(MYGUI_VERSION 3.4.0)
-set(MYGUI_HASH SHA256=d1d5f294670ae71f7200ed4b30859018281d8cfd45d6a38d18b97a4aba604c42)
+set(MYGUI_VERSION 3.4.1)
+#set(MYGUI_HASH SHA256=d1d5f294670ae71f7200ed4b30859018281d8cfd45d6a38d18b97a4aba604c42)
 
 # https://github.com/ptitSeb/gl4es/releases
 set(GL4ES_VERSION v1.1.4)
 set(GL4ES_HASH SHA256=b565e717c7d192e936bda25f3cb90ad8db398af56414ec08294b6716574c1a6d)
 
 # https://github.com/openscenegraph/OpenSceneGraph/releases
-set(OSG_VERSION 3.6.5)
-set(OSG_HASH SHA256=aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12)
+set(OSG_VERSION 01cc2b585c8456a4ff843066b7e1a8715558289f)
+#set(OSG_HASH SHA256=aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12)
 
 # https://github.com/lz4/lz4/releases
 set(LZ4_VERSION 1.9.3)
@@ -52,9 +52,13 @@ set(LZ4_HASH SHA256=030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ff
 set(LUAJIT_VERSION 2.1.0-beta3)
 set(LUAJIT_HASH SHA256=1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3)
 
+# https://www.sqlite.org/download.html
+set(SQLITE_VERSION 3360000)
+set(SQLITE_HASH SHA256=bd90c3eb96bee996206b83be7065c9ce19aef38c3f4fb53073ada0d0b69bbce3)
+
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION 1644430bc08aa537621b21bf7bfb1f5c0f3a9d92)
-set(OPENMW_HASH SHA256=8ce70ffabcc03dba33fe955b273ae6a6afe3ae054797261f38781a869a0e04ec)
+set(OPENMW_VERSION 063af50deebe66e6a6555055c6d88feaa6a27148)
+#set(OPENMW_HASH SHA256=8ce70ffabcc03dba33fe955b273ae6a6afe3ae054797261f38781a869a0e04ec)
 
 # End of configurable options
 
@@ -76,6 +80,7 @@ set(COMMON_CMAKE_ARGS
 	-DANDROID_PLATFORM=${android_platform}
 	-DANDROID_STL=c++_shared
 	-DANDROID_CPP_FEATURES=rtti\ exceptions
+	-DANDROID_LD=deprecated
 	-DCMAKE_C_FLAGS=-DMYGUI_DONT_REPLACE_NULLPTR\ -I${prefix}/include/\ $ENV{CFLAGS}
 	-DCMAKE_CXX_FLAGS=-DMYGUI_DONT_REPLACE_NULLPTR\ -I${prefix}/include/\ $ENV{CXXFLAGS}
 	-DCMAKE_SHARED_LINKER_FLAGS=$ENV{LDFLAGS}
@@ -90,6 +95,7 @@ set(COMMON_NDK_BUILD_FLAGS
 	APP_BUILD_SCRIPT=<SOURCE_DIR>/Android.mk
 	APP_PLATFORM=${android_platform}
 	APP_ABI=${app_abi}
+	APP_LD=deprecated
 	LOCAL_LDFLAGS=$ENV{LDFLAGS}
 	-j4
 )
@@ -332,23 +338,23 @@ ExternalProject_Add(gl4es
 )
 
 ExternalProject_Add(mygui
-	DEPENDS freetype2
+	DEPENDS freetype2 gl4es
 
 	URL https://github.com/MyGUI/mygui/archive/MyGUI${MYGUI_VERSION}.tar.gz
 	https://github.com/xyzz/openmw-deps/releases/download/v0/MyGUI${MYGUI_VERSION}.tar.gz
 	URL_HASH ${MYGUI_HASH}
 	DOWNLOAD_DIR ${download_dir}
 
-	PATCH_COMMAND patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/mygui-dont-set-debug-postfix.patch
+#	PATCH_COMMAND patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/mygui-dont-set-debug-postfix.patch
 
 	CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
 	${COMMON_CMAKE_ARGS}
-	-DMYGUI_RENDERSYSTEM=ON
+	-DMYGUI_RENDERSYSTEM=4
 	-DMYGUI_BUILD_DEMOS=OFF
 	-DMYGUI_BUILD_TOOLS=OFF
 	-DMYGUI_BUILD_PLUGINS=OFF
 	-DFREETYPE_FT2BUILD_INCLUDE_DIR=${prefix}/include/freetype2/
-
+        -DMYGUI_DONT_USE_OBSOLETE=OFF
 	-DMYGUI_STATIC=ON
 
 	BUILD_COMMAND ${wrapper_command} $(MAKE)
@@ -400,11 +406,85 @@ ExternalProject_Add(luajit
 	COMMAND bash -c "rm ${prefix}/lib/libluajit*.so*"
 )
 
+ExternalProject_Add(sqlite
+	URL https://www.sqlite.org/2021/sqlite-autoconf-${SQLITE_VERSION}.tar.gz
+	URL_HASH ${SQLITE_HASH}
+	DOWNLOAD_DIR ${download_dir}
+
+	CONFIGURE_COMMAND ${wrapper_command} <SOURCE_DIR>/configure
+	${COMMON_AUTOCONF_FLAGS}
+
+	BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+	INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+ExternalProject_Add(zlib
+		URL https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz
+		URL_HASH SHA256=629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff
+		DOWNLOAD_DIR ${download_dir}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+ExternalProject_Add(libxml
+		DEPENDS zlib
+
+		URL https://github.com/GNOME/libxml2/archive/refs/tags/v2.9.12.tar.gz
+		URL_HASH SHA256=8a4ddd706419c210b30b8978a51388937fd9362c34fc9a3d69e4fcc6f8055ee0
+		DOWNLOAD_DIR ${download_dir}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+		-DBUILD_SHARED_LIBS=OFF
+		-DLIBXML2_WITH_CATALOG=OFF
+		-DLIBXML2_WITH_ICONV=OFF
+		-DLIBXML2_WITH_LZMA=OFF
+		-DLIBXML2_WITH_PROGRAMS=OFF
+		-DLIBXML2_WITH_PYTHON=OFF
+		-DLIBXML2_WITH_TESTS=OFF
+		-DLIBXML2_WITH_ZLIB=ON
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
+set(LIBCOLLADA_PATCH patch -d <SOURCE_DIR> -p0 -t -N < ${CMAKE_SOURCE_DIR}/patches/libcollada-minizip-fix.patch)
+
+ExternalProject_Add(libcollada
+		DEPENDS libxml boost
+
+		URL https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz
+		URL_HASH SHA256=3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d
+		DOWNLOAD_DIR ${download_dir}
+
+		PATCH_COMMAND ${LIBCOLLADA_PATCH}
+
+		CONFIGURE_COMMAND ${wrapper_command} cmake <SOURCE_DIR>
+		${COMMON_CMAKE_ARGS}
+		-DBoost_USE_STATIC_LIBS=ON
+		-DBoost_USE_STATIC_RUNTIME=ON
+		-DBoost_NO_SYSTEM_PATHS=ON
+		-DBoost_INCLUDE_DIR=${prefix}/include
+		-DHAVE_STRTOQ=0
+		-DUSE_FILE32API=1
+
+		BUILD_COMMAND ${wrapper_command} $(MAKE)
+
+		INSTALL_COMMAND ${wrapper_command} $(MAKE) install
+)
+
 set(OSG_COMMON
 	-DOPENGL_PROFILE="GL1"
 	-DDYNAMIC_OPENTHREADS=OFF
 	-DDYNAMIC_OPENSCENEGRAPH=OFF
 	-DBUILD_OSG_PLUGIN_OSG=ON
+	-DBUILD_OSG_PLUGIN_DAE=ON
 	-DBUILD_OSG_PLUGIN_DDS=ON
 	-DBUILD_OSG_PLUGIN_TGA=ON
 	-DBUILD_OSG_PLUGIN_BMP=ON
@@ -429,11 +509,13 @@ set(OSG_COMMON
 	-DBUILD_OSG_APPLICATIONS=OFF
 	-DBUILD_OSG_PLUGINS_BY_DEFAULT=OFF
 	-DBUILD_OSG_DEPRECATED_SERIALIZERS=OFF
+	-DOSG_WINDOWING_SYSTEM_NONE=ON
 )
 
 set(OSG_PATCH
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/disable-polygon-offset.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/remove-lib-prefix-from-plugins.patch &&
+	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/remove-zlib-dependency.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/fix-freetype-include-dirs.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/0001-Replace-Atomic-impl-with-std-atomic.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/osg/0002-BufferObject-make-numClients-atomic.patch &&
@@ -442,9 +524,10 @@ set(OSG_PATCH
 )
 
 ExternalProject_Add(osg
-	DEPENDS libjpeg-turbo libpng gl4es freetype2
+	DEPENDS libjpeg-turbo libpng zlib gl4es freetype2 libcollada
 
-	URL https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-${OSG_VERSION}.tar.gz
+	URL https://github.com/openmw/osg/archive/${OSG_VERSION}.tar.gz
+#	URL https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-${OSG_VERSION}.tar.gz
 	https://github.com/xyzz/openmw-deps/releases/download/v0/OpenSceneGraph-${OSG_VERSION}.tar.gz
 	URL_HASH ${OSG_HASH}
 	DOWNLOAD_DIR ${download_dir}
@@ -468,6 +551,7 @@ set(OPENMW_COMMON
 	-DBUILD_LAUNCHER=0
 	-DBUILD_MWINIIMPORTER=0
 	-DBUILD_ESSIMPORTER=0
+	-DBUILD_NAVMESHTOOL=0
 	-DBUILD_OPENCS=0
 	-DBUILD_WIZARD=0
 	-DBUILD_MYGUI_PLUGIN=0
@@ -484,16 +568,17 @@ set(OPENMW_PATCH
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0009-windowmanagerimp-always-show-mouse-when-possible-pat.patch &&
     patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0010-android-fix-context-being-lost-on-app-minimize.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0014-settingswindow-save-user-settings-file-when-ok-is-pr.patch &&
-	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0012-components-misc-stringops-use-boost-format-instead-o.patch &&
+#	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/0012-components-misc-stringops-use-boost-format-instead-o.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/fix-build.patch &&
 	patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/openmw/refraction-fix.patch &&
 	cp ${CMAKE_SOURCE_DIR}/patches/openmw/android_main.cpp <SOURCE_DIR>/apps/openmw/android_main.cpp
 )
 
 ExternalProject_Add(openmw
-	DEPENDS boost openal osg mygui ffmpeg sdl2 bullet lz4 luajit
+	DEPENDS boost openal gl4es osg mygui ffmpeg sdl2 bullet lz4 luajit sqlite
 
-	URL https://github.com/OpenMW/openmw/archive/${OPENMW_VERSION}.tar.gz
+	URL https://gitlab.com/OpenMW/openmw/-/archive/${OPENMW_VERSION}.tar.gz
+#	URL https://github.com/OpenMW/openmw/archive/${OPENMW_VERSION}.tar.gz
 	URL_HASH ${OPENMW_HASH}
 	DOWNLOAD_DIR ${download_dir}
 
