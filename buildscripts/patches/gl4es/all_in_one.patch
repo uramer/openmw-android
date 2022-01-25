@@ -1,0 +1,90 @@
+diff --git a/Android.mk b/Android.mk
+index 2290e5ac..8e30ed05 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -92,13 +92,17 @@ LOCAL_SRC_FILES := \
+ LOCAL_CFLAGS += -g -std=gnu99 -funwind-tables -O3 -fvisibility=hidden -include include/android_debug.h
+ LOCAL_CFLAGS += -DNOX11
+ LOCAL_CFLAGS += -DNO_GBM
+-#LOCAL_CFLAGS += -DNO_INIT_CONSTRUCTOR
++LOCAL_CFLAGS += -DNO_INIT_CONSTRUCTOR
++LOCAL_CFLAGS += -DNOEGL
++LOCAL_CFLAGS += -DNO_LOADER
++LOCAL_CFLAGS += -include include/gl4esinit.h
+ LOCAL_CFLAGS += -DDEFAULT_ES=2
+ //TODO: maybe temporary?
+ LOCAL_CFLAGS += -Wno-typedef-redefinition -Wno-dangling-else
++LOCAL_CFLAGS += -Dasm=__asm__ -Dvolatile=__volatile__
+ 
+ LOCAL_LDLIBS := -llog
+-#building as a static lib
++#building as a shared lib
+ 
+-LOCAL_CFLAGS += -DSTATICLIB
+-include $(BUILD_STATIC_LIBRARY)
++#LOCAL_CFLAGS += -DSTATICLIB
++include $(BUILD_SHARED_LIBRARY)
+diff --git a/src/gl/fpe.h b/src/gl/fpe.h
+index 723f9328..268ce28a 100644
+--- a/src/gl/fpe.h
++++ b/src/gl/fpe.h
+@@ -188,6 +188,7 @@ typedef struct fpe_state_s {
+     unsigned int fragment_prg_enable:1;  // if fragment program is enabled
+     uint16_t     vertex_prg_id;          // Id of vertex program currently binded (0 most of the time), 16bits is more than enough...
+     uint16_t     fragment_prg_id;        // Id of fragment program currently binded (0 most of the time)
++    int16_t gamma;
+ } fpe_state_t;
+ #pragma pack()
+ 
+diff --git a/src/gl/fpe_shader.c b/src/gl/fpe_shader.c
+index 1f57dc8c..15444eae 100644
+--- a/src/gl/fpe_shader.c
++++ b/src/gl/fpe_shader.c
+@@ -1380,6 +1380,11 @@ const char* const* fpe_FragmentShader(shaderconv_need_t* need, fpe_state_t *stat
+         #endif
+     }
+ 
++    if (state->gamma) {
++        sprintf(buff, "fColor.rgb = pow(fColor.rgb, vec3(1.0 / %.3f));\n", state->gamma / 100.0);
++        ShadAppend(buff);
++    }
++
+     //done
+     ShadAppend("gl_FragColor = fColor;\n");
+     ShadAppend("}");
+diff --git a/src/gl/light.c b/src/gl/light.c
+index 00527649..5f8ac7d5 100644
+--- a/src/gl/light.c
++++ b/src/gl/light.c
+@@ -77,6 +77,10 @@ void APIENTRY_GL4ES gl4es_glLightModelfv(GLenum pname, const GLfloat* params) {
+             return;
+         } else gl4es_flush();
+     switch (pname) {
++        case 0x4242:
++            if (glstate->fpe_state)
++                glstate->fpe_state->gamma = params[0] * 100;
++            return;
+         case GL_LIGHT_MODEL_AMBIENT:
+             if(memcmp(glstate->light.ambient, params, 4*sizeof(GLfloat))==0) {
+                 noerrorShim();
+diff --git a/src/gl/shader_hacks.c b/src/gl/shader_hacks.c
+index 35b39497..55d235ce 100644
+--- a/src/gl/shader_hacks.c
++++ b/src/gl/shader_hacks.c
+@@ -540,6 +540,7 @@ static char* ShaderHacks_2(char* shader, char* Tmp, int* tmpsize)
+ 
+ char* ShaderHacks(char* shader)
+ {
++/*
+     char* Tmp = shader;
+     int tmpsize = strlen(Tmp)+10;
+     // specific hacks
+@@ -558,4 +559,6 @@ char* ShaderHacks(char* shader)
+         }
+     }
+     return Tmp;
+-}
+\ No newline at end of file
++*/
++    return shader;
++}
